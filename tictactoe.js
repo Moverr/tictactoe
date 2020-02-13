@@ -1,5 +1,5 @@
 
-function initBoard() {
+  function initBoard() {
     let board = [];
     for (let i = 0; i < 3; i++) {
         let boradrow = []
@@ -10,6 +10,11 @@ function initBoard() {
         board[i] = boradrow;
     }
     return board;
+}
+
+
+module.exports = {
+    initBoard
 }
 
 // let result  = initBoard();
