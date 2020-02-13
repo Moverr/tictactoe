@@ -1,5 +1,5 @@
 
-  function initBoard() {
+  const intiboard=()=> {
     let board = [];
     for (let i = 0; i < 3; i++) {
         let boradrow = []
@@ -14,9 +14,9 @@
 
 
 module.exports = {
-    initBoard
+    intiboard
 }
 
-// let result  = initBoard();
+// let result  = intiboard();
 
-console.log(initBoard());
+console.log(intiboard()[0].length);
