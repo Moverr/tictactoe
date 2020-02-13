@@ -1,7 +1,5 @@
- 
 
- function  initBoard () {
-
+function initBoard() {
     let board = [];
     for (let i = 0; i < 3; i++) {
         let boradrow = []
@@ -11,8 +9,6 @@
         }
         board[i] = boradrow;
     }
-    
-
     return board;
 }
 
