@@ -97,6 +97,8 @@ const findMatch = (moves) => {
     }
     let board = populateBoard(moves);
     let horizontal_match = findHorizontalMatch(board);
+    
+    
 
 
 
@@ -115,7 +117,7 @@ initial_board = intiboard();
 
 
 module.exports = {
-    intiboard, populateBoard
+    intiboard, populateBoard,findHorizontalMatch
 }
 
 // let result  = intiboard();

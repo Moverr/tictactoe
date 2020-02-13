@@ -1,4 +1,4 @@
-let { intiboard, populateBoard } = require('../tictactoe')
+let { intiboard, populateBoard,findHorizontalMatch } = require('../tictactoe')
 describe("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
@@ -35,3 +35,31 @@ describe("Testing  the populate Board functionality", () => {
 
 
 })
+
+
+
+
+
+
+
+
+describe("Find Row Match of a record ", () => {
+
+    let movesstring = "+xxo++o++";
+    let board = populateBoard(movesstring);
+    let match = 
+    let expectedResult = [['+', 'x', 'x'], ['o', '+', '+'], ['o', '+', '+']];
+
+
+    it("Should find out if board is an array ", () => {
+        let arrayObject = Array.isArray(board);
+        expect(arrayObject).toEqual(true);
+    });
+
+    it("The resultant board should be equal to the expected result ", () => {
+        expect(board).toEqual(expectedResult);
+    })
+
+
+})
+
