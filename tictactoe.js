@@ -13,7 +13,11 @@ const intiboard = () => {
     return board;
 }
 
-const populateBoard = () => {
+const populateBoard = (moves) => {
+    if(moves == null){
+        return intiboard();
+    }
+    let movesarray = moves.split("");
     let board = [];
 
     for (let i = 0; i < 3; i++) {
