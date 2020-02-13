@@ -1,4 +1,4 @@
-let { intiboard,populateBoard } = require('../tictactoe')
+let { intiboard, populateBoard } = require('../tictactoe')
 describe("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
