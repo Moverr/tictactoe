@@ -55,9 +55,13 @@ const findHorizontalMatch = (board) => {
         boardrow = board[i];
         let move_x = 0;
         let move_o = 0;
-        for (let j = 0; j < 3; j++) {
-            if (movesarray[boardindex] == player1 || movesarray[boardindex] == player2) {
-                boradrow[j] = movesarray[boardindex];
+        for (let j = 0; j < boardrow.length; j++) {
+            if (boardrow[j] == player1) {
+                move_o++;
+            }
+
+            if (boardrow[j] == player2) {
+                move_x++;
             }
         }
     }
