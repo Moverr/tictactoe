@@ -1,6 +1,7 @@
 
-  const intiboard=()=> {
+const intiboard = () => {
     let board = [];
+
     for (let i = 0; i < 3; i++) {
         let boradrow = []
         board[i] = [];
@@ -12,14 +13,32 @@
     return board;
 }
 
+const populateBoard = () => {
+    let board = [];
 
-const players  = ["x","o"];
+    for (let i = 0; i < 3; i++) {
+        let boradrow = []
+        board[i] = [];
+        for (let j = 0; j < 3; j++) {
+            boradrow[j] = "+";
+        }
+        board[i] = boradrow;
+    }
+
+}
+
+
+const players = ["x", "o"];
 
 let movesstring = "+xxo++o++";
 //todo: convert  string to array 
 let movesarray = movesstring.split("");
 
 console.log(movesarray);
+
+initial_board = intiboard();
+
+
 
 
 module.exports = {
