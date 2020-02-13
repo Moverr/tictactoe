@@ -5,12 +5,15 @@
         let boradrow = []
         board[i] = [];
         for (let j = 0; j < 3; j++) {
-            boradrow[j] = j;
+            boradrow[j] = "+";
         }
         board[i] = boradrow;
     }
     return board;
 }
+
+
+const players  = ["x","o"];
 
 
 module.exports = {
@@ -19,4 +22,4 @@ module.exports = {
 
 // let result  = intiboard();
 
-console.log(intiboard()[0].length);
+console.log(intiboard());
