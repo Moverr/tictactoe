@@ -26,6 +26,7 @@ const populateBoard = (moves) => {
 
     let boardindex = 0;
     for (let i = 0; i < 3; i++) {
+
         let boradrow = []
         board[i] = [];
         for (let j = 0; j < 3; j++) {
@@ -45,28 +46,32 @@ const populateBoard = (moves) => {
 
 const findHorizontalMatch = (board) => {
 
-    if(!Array.isArray(board)){
+    if (!Array.isArray(board)) {
         return null;
     }
-    
+
+    //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+    }
 
 }
 
-const findVerticalMatch = ()=> {
+const findVerticalMatch = () => {
 
 }
 
-const findLeftRigtDiagonalMatch = ()=>{
+const findLeftRigtDiagonalMatch = () => {
 
 }
 
-const findRightLeftDiagonalMatch = ()=>{
+const findRightLeftDiagonalMatch = () => {
 
 }
 
 
-const findMatch = (moves) =>{
-    if(moves == undefined){
+const findMatch = (moves) => {
+    if (moves == undefined) {
         return null;
     }
     let board = populateBoard(moves);
@@ -76,7 +81,7 @@ const findMatch = (moves) =>{
 
 }
 
- 
+
 let movesstring = "+xxo++o++";
 //todo: convert  string to array 
 let movesarray = movesstring.split("");
@@ -89,7 +94,7 @@ initial_board = intiboard();
 
 
 module.exports = {
-    intiboard,populateBoard
+    intiboard, populateBoard
 }
 
 // let result  = intiboard();
