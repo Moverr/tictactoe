@@ -64,7 +64,17 @@ const findHorizontalMatch = (board) => {
                 move_x++;
             }
         }
+
+        if (move_x == 3) {
+            return move_x;
+        }
+        if (move_o == 3) {
+            return move_o;
+        }
     }
+
+    //note: 0 meaning draw in this context 
+    return 0;
 
 }
 
