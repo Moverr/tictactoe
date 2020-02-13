@@ -1,0 +1,19 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "Test Tictac Toe via API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moverr/tictactoe.git"
+  },
+  "author": "Muyinda Rogers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moverr/tictactoe/issues"
+  },
+  "homepage": "https://github.com/Moverr/tictactoe#readme"
+}
