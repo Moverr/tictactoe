@@ -43,6 +43,27 @@ const populateBoard = (moves) => {
 
 }
 
+const findHorizontalMatch = () => {
+
+}
+
+const findVerticalMatch = ()=> {
+
+}
+
+const findLeftRigtDiagonalMatch = ()=>{
+
+}
+
+const findRightLeftDiagonalMatch = ()=>{
+
+}
+
+
+const findMatch = () =>{
+
+}
+
  
 let movesstring = "+xxo++o++";
 //todo: convert  string to array 
