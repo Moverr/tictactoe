@@ -15,6 +15,12 @@
 
 const players  = ["x","o"];
 
+let movesstring = "+xxo++o++";
+//todo: convert  string to array 
+let movesarray = movesstring.split("");
+
+console.log(movesarray);
+
 
 module.exports = {
     intiboard
@@ -22,4 +28,6 @@ module.exports = {
 
 // let result  = intiboard();
 
-console.log(intiboard());
+// console.log(intiboard());
+
+// console.log(players[1]);
