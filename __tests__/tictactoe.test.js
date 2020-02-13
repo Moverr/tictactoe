@@ -1,5 +1,5 @@
-let { intiboard } = require('../tictactoe')
-describe("Testing the Tictoa Engine", () => {
+let { intiboard,populateBoard } = require('../tictactoe')
+describe("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
     it("Should find out if board is an array ", () => {
@@ -11,6 +11,27 @@ describe("Testing the Tictoa Engine", () => {
         expect(board.length).toEqual(3);
         expect(board[0].length).toEqual(3);
 
-
     });
+
+
 });
+
+
+describe("Testing  the populate Board functionality", () => {
+
+    let movesstring = "+xxo++o++";
+    let board = populateBoard(movesstring);
+    let expectedResult = [['+', 'x', 'x'], ['o', '+', '+'], ['o', '+', '+']];
+
+
+    it("Should find out if board is an array ", () => {
+        let arrayObject = Array.isArray(board);
+        expect(arrayObject).toEqual(true);
+    });
+
+    it("The resultant board should be equal to the expected result ", () => {
+        expect(board).toEqual(expectedResult);
+    })
+
+
+})

@@ -77,7 +77,7 @@ initial_board = intiboard();
 
 
 module.exports = {
-    intiboard
+    intiboard,populateBoard
 }
 
 // let result  = intiboard();
