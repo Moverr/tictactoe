@@ -43,7 +43,12 @@ const populateBoard = (moves) => {
 
 }
 
-const findHorizontalMatch = () => {
+const findHorizontalMatch = (board) => {
+
+    if(!Array.isArray(board)){
+        return null;
+    }
+    
 
 }
 
@@ -60,7 +65,14 @@ const findRightLeftDiagonalMatch = ()=>{
 }
 
 
-const findMatch = () =>{
+const findMatch = (moves) =>{
+    if(moves == undefined){
+        return null;
+    }
+    let board = populateBoard(moves);
+    let horizontal_match = findHorizontalMatch(board);
+
+
 
 }
 
