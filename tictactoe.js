@@ -1,4 +1,8 @@
 
+const player1 = "o";
+const player2 = "x";
+const initsymbol = "+";
+
 const intiboard = () => {
     let board = [];
 
@@ -6,7 +10,7 @@ const intiboard = () => {
         let boradrow = []
         board[i] = [];
         for (let j = 0; j < 3; j++) {
-            boradrow[j] = "+";
+            boradrow[j] = initsymbol;
         }
         board[i] = boradrow;
     }
@@ -14,31 +18,37 @@ const intiboard = () => {
 }
 
 const populateBoard = (moves) => {
-    if(moves == null){
+    if (moves == null) {
         return intiboard();
     }
     let movesarray = moves.split("");
     let board = [];
 
+    let boardindex = 0;
     for (let i = 0; i < 3; i++) {
         let boradrow = []
         board[i] = [];
         for (let j = 0; j < 3; j++) {
-            boradrow[j] = "+";
+            if (movesarray[boardindex] == player1 || movesarray[boardindex] == player2) {
+                boradrow[j] = movesarray[boardindex];
+            } else {
+                boradrow[j] = initsymbol;
+            }
+            boardindex++;
         }
         board[i] = boradrow;
     }
 
+    return board;
+
 }
 
-
-const players = ["x", "o"];
-
+ 
 let movesstring = "+xxo++o++";
 //todo: convert  string to array 
 let movesarray = movesstring.split("");
 
-console.log(movesarray);
+console.log(populateBoard(movesstring));
 
 initial_board = intiboard();
 
