@@ -45,10 +45,10 @@ describe("Testing  the populate Board functionality", () => {
 
 describe("Find Row Match of a record ", () => {
 
-    let movesstring = "+xxo++o++";
+    let movesstring = "xxxo++oo+";
     let board = populateBoard(movesstring);
-    let match = 
-    let expectedResult = [['+', 'x', 'x'], ['o', '+', '+'], ['o', '+', '+']];
+    let match = findHorizontalMatch(board);
+    let expectedResult = ;
 
 
     it("Should find out if board is an array ", () => {

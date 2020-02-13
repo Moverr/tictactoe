@@ -66,10 +66,10 @@ const findHorizontalMatch = (board) => {
         }
 
         if (move_x == 3) {
-            return move_x;
+            return player2;
         }
         if (move_o == 3) {
-            return move_o;
+            return player1;
         }
     }
 
