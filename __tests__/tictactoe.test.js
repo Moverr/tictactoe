@@ -48,14 +48,18 @@ describe("Find Row Match of a record ", () => {
     let player1 = "o";
     let player2 = "x";
 
-
-    let movesstring = "xxxo++oo+";
-    let board = populateBoard(movesstring);
-    let bestPlayer = findHorizontalMatch(board);
-    let expectedResult = player2;
+    let movesstring = null;
+    let board = null;
+    let bestPlayer = null;
+    let expectedResult =null;
 
 
     it("Find the best player", () => {
+        movesstring = "xxxo++oo+";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult = player2;
+
         expect(bestPlayer).toEqual(expectedResult);
     });
 
