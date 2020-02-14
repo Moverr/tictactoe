@@ -150,6 +150,20 @@ const findVerticalMatch = (board) => {
 
 
 
+const findifExistsUnmatched = (board) => {
+    let boardrow = 0;
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+
+        if (boardrow[columnIndex] == initsymbol) {
+            return true;
+        }
+
+    }
+    return false;
+}
+
+
 const findLeftRigtDiagonalMatch = (board) => {
 
     let unmatched = 0;
@@ -182,22 +196,42 @@ const findLeftRigtDiagonalMatch = (board) => {
             return draw;
         }
     }
+
 }
 
-const findifExistsUnmatched = (board) => {
-    let boardrow = 0;
-    for (let i = 0; i < board.length; i++) {
+const findRightLeftDiagonalMatch = (board) => {
+
+    let unmatched = 0;
+    let move_o = 0;
+    let move_x = 0;
+
+    for (let i = board.length; i > 0; i--) {
         boardrow = board[i];
-
-        if (boardrow[columnIndex] == initsymbol) {
-            return true;
+        if (boardrow[i] == player1) {
+            move_o++;
         }
+        else if (boardrow[i] == player2) {
+            move_x++;
+        } else if (boardrow[i] == initsymbol) {
+            unmatched++;
+        } else {
 
+        }
     }
-    return false;
-}
+    if (move_o == 3) {
+        return player1;
+    }
+    else if (move_x == 3) {
+        return player2;
+    } else {
+        let isUnmatched = findifExistsUnmatched(board);
+        if (isUnmatched == true) {
+            return board;
+        } else {
+            return draw;
+        }
+    }
 
-const findRightLeftDiagonalMatch = () => {
 
 }
 
