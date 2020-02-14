@@ -255,16 +255,20 @@ describe.skip("Testing the diagnoal right to left   match functionality ", () =>
 
 describe("Testing the Horizontal match functionality ", () => {
     it('should through an error on null', () => {
-        expect(validateBoardString).toThrow();
+        try {
+            validateBoardString();
+        } catch (e) { 
+            expect(e.message).toMatch('Invalid Boad String');
+        }
     });
 
 
     it('should through an error on null', () => {
         let boardString = "x++o";
         try {
-            validateBoardString(boardString)
-        } catch (e) {
-            expect(e).toMatch('my error');
+            validateBoardString(boardString);
+        } catch (e) { 
+            expect(e.message).toMatch('Invalid Board Length');
         }
     });
 
