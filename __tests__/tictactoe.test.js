@@ -120,7 +120,7 @@ describe("Testing the vertical  match functionality ", () => {
     });
 
 
-    it("Find the best player from the second row in vertical match ", () => {
+    it("Find the best player from the second column in vertical match ", () => {
         movesstring = "oxo+x+ox+";
         board = populateBoard(movesstring);
         bestPlayer = findVerticalMatch(board);
