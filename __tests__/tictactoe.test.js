@@ -1,7 +1,7 @@
 let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch } = require('../tictactoe');
 
 
-describe.skip("Testing the Init   Board functionality", () => {
+describe("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
     it("Should find out if board is an array ", () => {
@@ -19,7 +19,7 @@ describe.skip("Testing the Init   Board functionality", () => {
 });
 
 
-describe.skip("Testing  the populate Board functionality", () => {
+describe("Testing  the populate Board functionality", () => {
 
     let movesstring = "+xxo++o++";
     let board = populateBoard(movesstring);
@@ -38,14 +38,9 @@ describe.skip("Testing  the populate Board functionality", () => {
 
 })
 
+ 
 
-
-
-
-
-
-
-describe.skip("Testing the Horizontal match functionality ", () => {
+describe("Testing the Horizontal match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -55,7 +50,6 @@ describe.skip("Testing the Horizontal match functionality ", () => {
     let board = null;
     let bestPlayer = null;
     let expectedResult = null;
-
 
     it("Find the best player in horizontal match", () => {
         movesstring = "xxxo++oo+";
@@ -100,12 +94,6 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
 })
-
-
-
-
-
-
 
 
 
