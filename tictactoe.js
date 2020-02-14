@@ -210,12 +210,12 @@ const findRightLeftDiagonalMatch = (board) => {
     let move_x = 0;
     let boardrow = 0;
 
-    let boardIndex = board.length -1; 
+    let boardIndex = board.length - 1;
 
     for (let i = 0; i < board.length; i++) {
-        
-        boardrow = board[boardIndex]; 
-         
+
+        boardrow = board[boardIndex];
+
         if (boardrow[i] == player1) {
             move_o++;
         }
@@ -226,36 +226,46 @@ const findRightLeftDiagonalMatch = (board) => {
         } else {
 
         }
-        boardIndex --;
-    
+        boardIndex--;
+
     }
- 
+
 
     if (move_o == 3) {
         return player1;
     }
     else if (move_x == 3) {
-        
+
         return player2;
     } else {
         let isUnmatched = findifExistsUnmatched(board);
-        if (isUnmatched == true) { 
+        if (isUnmatched == true) {
             return board;
-        } else { 
-                        return draw;
+        } else {
+            return draw;
         }
     }
 
-    
+
 
 }
 
 
-const findMatch = (moves) => {
+const playGame = (moves) => {
     if (moves == undefined) {
         return null;
     }
-    let board = populateBoard(moves);
+
+
+
+    //todo: convert  string to array 
+    let movesarray = moves.split("");
+
+    console.log(movesarray);
+
+
+
+    /* let board = populateBoard(moves);
     // let horizontal_match = findHorizontalMatch(board);
     // let vertical_match = findVerticalMatch(board);
     let diagnoal_leftright_match = findLeftRigtDiagonalMatch(board);
@@ -263,15 +273,17 @@ const findMatch = (moves) => {
 
     // console.log(diagnoal_leftright_match);
     return diagnoal_leftright_match;
+    */
 
 
 }
 
 
 let movesstring = "+xxo++o++";
-//todo: convert  string to array 
-let movesarray = movesstring.split("");
 
+
+
+playGame(movesstring)
 // console.log(findMatch(movesstring));
 
 // initial_board = intiboard();
@@ -280,7 +292,7 @@ let movesarray = movesstring.split("");
 
 
 module.exports = {
-    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch,findLeftRigtDiagonalMatch,findRightLeftDiagonalMatch
+    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch, findLeftRigtDiagonalMatch, findRightLeftDiagonalMatch
 }
 
 // let result  = intiboard();
