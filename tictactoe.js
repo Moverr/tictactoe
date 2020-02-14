@@ -92,7 +92,7 @@ const findHorizontalMatch = (board) => {
 
 }
 
-const rotateThroughColumns = (board, columnIndex, unmatched) => {
+const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
 
 
     let move_o = 0;
@@ -128,7 +128,7 @@ const rotateThroughColumns = (board, columnIndex, unmatched) => {
             return draw;
         } else {
 
-            return rotateThroughColumns(board, columnIndex++, unmatched);
+            return rotateThroughBoardColumns(board, columnIndex++, unmatched);
         }
  
     }
