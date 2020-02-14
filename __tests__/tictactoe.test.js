@@ -1,4 +1,4 @@
-let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch ,findLeftRigtDiagonalMatch,findRightLeftDiagonalMatch} = require('../tictactoe');
+let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch ,findLeftRigtDiagonalMatch} = require('../tictactoe');
 
 
 describe.skip("Testing the Init   Board functionality", () => {
@@ -203,7 +203,7 @@ describe.skip("Testing the diagonal left to right   match functionality ", () =>
 
 
 describe("Testing the diagnoal right to left   match functionality ", () => {
-
+ 
     let player1 = "o";
     let player2 = "x";
     let draw = 0;
@@ -216,8 +216,9 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
 
     it("Find the best player in vertical match", () => {
         movesstring = "xoo+x+o+x";
-        board = populateBoard(movesstring);
-        bestPlayer = findRightLeftDiagonalMatch(board);
+        reversedString = movesstring.split("").reverse().join();
+        board = populateBoard(reversedString);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
         expectedResult = player2;
         expect(bestPlayer).toEqual(expectedResult);
     });
@@ -225,8 +226,10 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
 
     it("Test A scenario where the board is not filled completely and yet no decision made  ", () => {
         movesstring = "ox+xooxo+";
-        board = populateBoard(movesstring);
-        bestPlayer = findRightLeftDiagonalMatch(board);
+        reversedString = movesstring.split("").reverse().join();
+        
+        board = populateBoard(reversedString);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
         expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
 
         expect(bestPlayer).toEqual(expectedResult);
@@ -235,12 +238,16 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
 
     it("Test a draw scenario  ", () => {
         movesstring = "xoxoxoxoo";
-        board = populateBoard(movesstring);
-        bestPlayer = findRightLeftDiagonalMatch(board);
+        reversedString = movesstring.split("").reverse().join();
+       
+        board = populateBoard(reversedString);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
         expectedResult = draw;
 
         expect(bestPlayer).toEqual(expectedResult);
     });
+    
+ 
     
  
 })

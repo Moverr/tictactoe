@@ -202,46 +202,7 @@ const findLeftRigtDiagonalMatch = (board) => {
     }
 
 }
-
-const findRightLeftDiagonalMatch = (board) => {
-
-    let unmatched = 0;
-    let move_o = 0;
-    let move_x = 0;
-    let boardrow = 0;
-
-    for (let i = board.length-1; i > 0; i--) {
-        boardrow = board[i];
-        if (boardrow[i] == player1) {
-            move_o++;
-        }
-        else if (boardrow[i] == player2) {
-            move_x++;
-        } else if (boardrow[i] == initsymbol) {
-            unmatched++;
-        } else {
-
-        }
-    }
-    if (move_o == 3) {
-        return player1;
-    }
-    else if (move_x == 3) {
-        console.log(board);
-        return player2;
-    } else {
-        let isUnmatched = findifExistsUnmatched(board);
-        if (isUnmatched == true) {
-            console.log(board);
-            return board;
-        } else {
-            console.log(board);
-            return draw;
-        }
-    }
-
-}
-
+ 
 
 const findMatch = (moves) => {
     if (moves == undefined) {
@@ -272,7 +233,7 @@ let movesarray = movesstring.split("");
 
 
 module.exports = {
-    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch,findLeftRigtDiagonalMatch,findRightLeftDiagonalMatch
+    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch,findLeftRigtDiagonalMatch
 }
 
 // let result  = intiboard();
