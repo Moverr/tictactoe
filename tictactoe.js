@@ -270,7 +270,7 @@ let movesarray = movesstring.split("");
 
 
 module.exports = {
-    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch,findLeftRigtDiagonalMatch
+    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch,findLeftRigtDiagonalMatch,findRightLeftDiagonalMatch
 }
 
 // let result  = intiboard();

@@ -1,4 +1,4 @@
-let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch ,findLeftRigtDiagonalMatch} = require('../tictactoe');
+let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch ,findLeftRigtDiagonalMatch,findRightLeftDiagonalMatch} = require('../tictactoe');
 
 
 describe.skip("Testing the Init   Board functionality", () => {
