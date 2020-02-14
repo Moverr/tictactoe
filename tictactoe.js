@@ -249,12 +249,17 @@ const findRightLeftDiagonalMatch = (board) => {
 
 }
 
-const validateBoardString = (boardString)=>{
+const validateBoardString = (boardString) => {
+    if (boardString == null || boardString == undefined) {
+        throw new Error("Invalid Boad String ")
+    }
 
-    let boardarray = boardString.split(""); 
-    if(boardarray.length !== 9 ){
+    let boardarray = boardString.split("");
+    if (boardarray.length !== 9) {
         throw new Error("Invalid Board Length");
     }
+
+    //the array must only contain caracters xo+
 
 }
 
@@ -270,7 +275,7 @@ const playGame = (boardstring) => {
 
 
     // let movesarray = moves.split("");
-   
+
     // console.log(movesarray.length);
     // let board = populateBoard(moves);
 
