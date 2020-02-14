@@ -93,10 +93,10 @@ const findHorizontalMatch = (board) => {
 }
 
 const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
- 
+
     let move_o = 0;
     let move_x = 0;
- 
+
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
 
@@ -131,10 +131,6 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
         }
 
     }
-
-
-
-
 }
 
 const findVerticalMatch = (board) => {
@@ -183,7 +179,7 @@ console.log(findMatch(movesstring));
 
 
 module.exports = {
-    intiboard, populateBoard, findHorizontalMatch
+    intiboard, populateBoard, findHorizontalMatch,findVerticalMatch
 }
 
 // let result  = intiboard();

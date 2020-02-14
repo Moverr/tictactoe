@@ -1,4 +1,6 @@
-let { intiboard, populateBoard, findHorizontalMatch } = require('../tictactoe')
+let { intiboard, populateBoard, findHorizontalMatch } = require('../tictactoe');
+
+ 
 describe("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
@@ -43,7 +45,7 @@ describe("Testing  the populate Board functionality", () => {
 
 
 
-describe("Find Row Match of a record ", () => {
+describe("Testing the Horizontal match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -55,7 +57,7 @@ describe("Find Row Match of a record ", () => {
     let expectedResult = null;
 
 
-    it("Find the best player", () => {
+    it("Find the best player in horizontal match", () => {
         movesstring = "xxxo++oo+";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
@@ -65,7 +67,7 @@ describe("Find Row Match of a record ", () => {
     });
 
 
-    it("Find the best player from the second row", () => {
+    it("Find the best player from the second row in horizontal match ", () => {
         movesstring = "x++oooxx+";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
@@ -75,7 +77,7 @@ describe("Find Row Match of a record ", () => {
     });
 
 
-    it("Test A scenario where the board is not filled completely and yet no decision yet ", () => {
+    it("Test A scenario where the board is not filled completely and yet no decision yet in horizontal match ", () => {
         movesstring = "x++xooxo+";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
