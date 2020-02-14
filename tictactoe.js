@@ -128,13 +128,9 @@ const rotateThroughColumns = (board, columnIndex, unmatched) => {
             return draw;
         } else {
 
-            rotateThroughColumns(board, columnIndex++, unmatched);
+            return rotateThroughColumns(board, columnIndex++, unmatched);
         }
-        // columnIndex++;
-        // move_o = 0;
-        // move_x = 0;
-
-
+ 
     }
 
 
