@@ -1,4 +1,4 @@
-let { intiboard, populateBoard, findHorizontalMatch } = require('../tictactoe');
+let { intiboard, populateBoard, findHorizontalMatch,findVerticalMatch } = require('../tictactoe');
 
  
 describe("Testing the Init   Board functionality", () => {
@@ -123,9 +123,9 @@ describe("Testing the vertical  match functionality ", () => {
 
 
     it("Find the best player in vertical match", () => {
-        movesstring = "xxxo++oo+";
+        movesstring = "xoox++xo+";
         board = populateBoard(movesstring);
-        bestPlayer = findHorizontalMatch(board);
+        bestPlayer = findVerticalMatch(board);
         expectedResult = player2;
 
         expect(bestPlayer).toEqual(expectedResult);
@@ -133,10 +133,10 @@ describe("Testing the vertical  match functionality ", () => {
 
 
     it("Find the best player from the second row in vertical match ", () => {
-        movesstring = "x++oooxx+";
+        movesstring = "oxo+x+ox+";
         board = populateBoard(movesstring);
-        bestPlayer = findHorizontalMatch(board);
-        expectedResult = player1;
+        bestPlayer = findVerticalMatch(board);
+        expectedResult = player2;
 
         expect(bestPlayer).toEqual(expectedResult);
     });
