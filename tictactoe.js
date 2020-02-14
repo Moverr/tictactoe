@@ -247,6 +247,9 @@ const findRightLeftDiagonalMatch = (board) => {
     }
 
 
+}
+
+const validateBoardString = (boardString:string)=>{
 
 }
 
@@ -260,8 +263,13 @@ const playGame = (moves) => {
 
     //todo: convert  string to array 
     let movesarray = moves.split("");
+    if(movesarray.length !== 9 ){
+        throw new Error("Invalid Board Structure");
+    }
+    console.log(movesarray.length);
+    let board = populateBoard(moves);
 
-    console.log(movesarray);
+    console.log(board);
 
 
 
