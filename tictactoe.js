@@ -261,7 +261,7 @@ const validateBoardString = (boardString) => {
     }
 
     //validat4e of boardstring only includes specific characers 
- 
+
     for (let index = 0; index < boardarray.length; index++) {
         let character = boardarray[index];
         if (character != player1 && character != player2 && character != initsymbol) {
@@ -269,21 +269,22 @@ const validateBoardString = (boardString) => {
         }
     }
 
-    return  boardarray;
-    
+    return boardarray;
+
 
 
 }
 
 
 //todo: rule number one 
-const placeHorizontalWin = (board) => {
+const placeHorizontalWin = (board, callback) => {
 
     if (!Array.isArray(board)) {
         return null;
     }
 
     let unmatched = 0;
+    let boardrow = null;
     //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
@@ -302,22 +303,22 @@ const placeHorizontalWin = (board) => {
             }
         }
 
-        if (move_o == 3) {
-            return player1;
+        if (move_o == 2 && move_x == 0 && unmatched == 1) {
+            //todo: place  a move o to the unmatched 
+            for (let j = 0; j < boardrow.length; j++) {
+                if (boardrow[j] == initsymbol) {
+                    boardrow[j] = player1;
+                    return callback(true, board);
+                }
+            }
         }
 
-        if (move_x == 3) {
-            return player2;
-        }
+        return callback(false, board);
+
+
 
     }
-    if (unmatched > 0) {
-        console.log(board);
-        return board;
-    }
 
-    //note: 0 meaning draw in this context 
-    return draw;
 
 }
 
@@ -333,10 +334,16 @@ const playGame = (boardstring) => {
     let board = populateBoard(boardstring);
 
     //todo: Win if a player [computer] has two in a row, they can place the third to win. 
+    placeHorizontalWin(board, (status, result) => {
+        //todo: return back to the status of the move 
+        if (status == true) {
+            return result;
+        }  
+    })
     // player1 = "o";
-    
+
     console.log(board);
- 
+
 
     // let movesarray = moves.split("");
 
