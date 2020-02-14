@@ -50,10 +50,6 @@ const populateBoard = (moves) => {
 
 const findHorizontalMatch = (board) => {
 
-
-    // player1 = "o";
-    // player2 = "x";
-
     if (!Array.isArray(board)) {
         return null;
     }
@@ -89,7 +85,41 @@ const findHorizontalMatch = (board) => {
 
 }
 
-const findVerticalMatch = () => {
+const findVerticalMatch = (board) => {
+
+    if (!Array.isArray(board)) {
+        return null;
+    }
+
+    //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+        let move_o = 0;
+        let move_x = 0;
+
+        for (let j = 0; j < boardrow.length; j++) {
+            if (boardrow[j] == player1) {
+                move_o++;
+            }
+
+            if (boardrow[j] == player2) {
+                move_x++;
+            }
+        }
+
+        if (move_o == 3) {
+            return player1;
+        }
+
+        if (move_x == 3) {
+            return player2;
+        }
+
+    }
+
+    //note: 0 meaning draw in this context 
+    return draw;
+
 
 }
 
