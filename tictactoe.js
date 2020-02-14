@@ -2,6 +2,7 @@
 const player1 = "o";
 const player2 = "x";
 const initsymbol = "+";
+const draw = 0;
 
 const intiboard = () => {
     let board = [];
@@ -84,7 +85,7 @@ const findHorizontalMatch = (board) => {
     }
 
     //note: 0 meaning draw in this context 
-    return 0;
+    return draw;
 
 }
 

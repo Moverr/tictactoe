@@ -47,11 +47,12 @@ describe("Find Row Match of a record ", () => {
 
     let player1 = "o";
     let player2 = "x";
+    let draw = 0;
 
     let movesstring = null;
     let board = null;
     let bestPlayer = null;
-    let expectedResult =null;
+    let expectedResult = null;
 
 
     it("Find the best player", () => {
@@ -64,6 +65,25 @@ describe("Find Row Match of a record ", () => {
     });
 
 
+    it("Find the best player from the second row", () => {
+        movesstring = "x++oooxx+";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult = player1;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+
+    it("Test a draw scenario in Horizontal matcher", () => {
+        movesstring = "x++xooxo+";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult = draw;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
 
 
 })
