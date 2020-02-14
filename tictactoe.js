@@ -104,7 +104,7 @@ const rotateThroughColumns = (board, columnIndex, unmatched) => {
         boardrow = board[i];
 
         if (boardrow[columnIndex] == player1) {
-            move_o++;
+            move_o++;[]
         }
 
         else if (boardrow[columnIndex] == player2) {
