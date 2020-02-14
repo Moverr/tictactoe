@@ -121,12 +121,6 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
     else if (move_x == 3) {
         return player2;
     } else {
-        console.log("Column Index");
-        console.log(columnIndex);
-
-        console.log("Unmatched ");
-        console.log(unmatched);
-
 
         if (columnIndex == 3 && unmatched > 0) {
 
