@@ -92,6 +92,53 @@ const findHorizontalMatch = (board) => {
 
 }
 
+const rotateThroughColumns = (board,columnIndex)=>{
+
+     
+    let move_o = 0;
+    let move_x = 0;
+
+
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+
+        if (boardrow[columnIndex] == player1) {
+            move_o++;
+        }
+
+        else if (boardrow[columnIndex] == player2) {
+            move_x++;
+        } else {
+            unmatched++;
+        }
+
+
+        if (i < board.length) {
+            continue;
+        }
+
+
+        if (move_o == 3) {
+            return player1;
+        }
+
+        else if (move_x == 3) {
+            return player2;
+        } else {
+            if (columnIndex < boardrow.length) {
+                columnIndex++;
+                move_o = 0;
+                move_x = 0;
+
+                continue;
+            }
+        }
+
+    }
+
+
+}
+
 const findVerticalMatch = (board) => {
 
     if (!Array.isArray(board)) {
@@ -99,27 +146,44 @@ const findVerticalMatch = (board) => {
     }
 
     //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
+    let columnIndex = 0;
+    let move_o = 0;
+    let move_x = 0;
+
+
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
-        let move_o = 0;
-        let move_x = 0;
 
-        for (let j = 0; j < boardrow.length; j++) {
-            if (boardrow[j] == player1) {
-                move_o++;
-            }
-
-            if (boardrow[j] == player2) {
-                move_x++;
-            }
+        if (boardrow[columnIndex] == player1) {
+            move_o++;
         }
+
+        else if (boardrow[columnIndex] == player2) {
+            move_x++;
+        } else {
+            unmatched++;
+        }
+
+
+        if (i < board.length) {
+            continue;
+        }
+
 
         if (move_o == 3) {
             return player1;
         }
 
-        if (move_x == 3) {
+        else if (move_x == 3) {
             return player2;
+        } else {
+            if (columnIndex < boardrow.length) {
+                columnIndex++;
+                move_o = 0;
+                move_x = 0;
+
+                continue;
+            }
         }
 
     }
