@@ -251,25 +251,30 @@ const findRightLeftDiagonalMatch = (board) => {
 
 const validateBoardString = (boardString)=>{
 
+    let boardarray = boardString.split(""); 
+    if(boardarray.length !== 9 ){
+        throw new Error("Invalid Board Length");
+    }
+
 }
 
 
-const playGame = (moves) => {
-    if (moves == undefined) {
+const playGame = (boardstring) => {
+    if (boardstring == undefined) {
         return null;
     }
 
+    //todo:   validate board string 
+    let boardArray = validateBoardString(boardstring)
 
 
-    //todo: convert  string to array 
-    let movesarray = moves.split("");
-    if(movesarray.length !== 9 ){
-        throw new Error("Invalid Board Structure");
-    }
-    console.log(movesarray.length);
-    let board = populateBoard(moves);
 
-    console.log(board);
+    // let movesarray = moves.split("");
+   
+    // console.log(movesarray.length);
+    // let board = populateBoard(moves);
+
+    // console.log(board);
 
 
 
