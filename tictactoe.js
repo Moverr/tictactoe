@@ -97,7 +97,7 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
 
     let move_o = 0;
     let move_x = 0;
-     
+
 
 
     for (let i = 0; i < board.length; i++) {
@@ -130,7 +130,7 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
 
             return rotateThroughBoardColumns(board, columnIndex++, unmatched);
         }
- 
+
     }
 
 
@@ -143,54 +143,10 @@ const findVerticalMatch = (board) => {
     if (!Array.isArray(board)) {
         return null;
     }
-
-    //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
     let columnIndex = 0;
-    let move_o = 0;
-    let move_x = 0;
-
-
-    for (let i = 0; i < board.length; i++) {
-        boardrow = board[i];
-
-        if (boardrow[columnIndex] == player1) {
-            move_o++;
-        }
-
-        else if (boardrow[columnIndex] == player2) {
-            move_x++;
-        } else {
-            unmatched++;
-        }
-
-
-        if (i < board.length) {
-            continue;
-        }
-
-
-        if (move_o == 3) {
-            return player1;
-        }
-
-        else if (move_x == 3) {
-            return player2;
-        } else {
-            if (columnIndex < boardrow.length) {
-                columnIndex++;
-                move_o = 0;
-                move_x = 0;
-
-                continue;
-            }
-        }
-
-    }
-
-    //note: 0 meaning draw in this context 
-    return draw;
-
-
+    let unmatched = 0;
+    let result = rotateThroughBoardColumns(board, columnIndex, unmatched);
+    return result;
 }
 
 const findLeftRigtDiagonalMatch = () => {
