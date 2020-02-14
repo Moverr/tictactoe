@@ -106,8 +106,10 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
 
         else if (boardrow[columnIndex] == player2) {
             move_x++;
-        } else {
+        } else if (boardrow[columnIndex] == initsymbol) {
             unmatched++;
+        } else {
+
         }
 
     }
@@ -119,10 +121,17 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
     else if (move_x == 3) {
         return player2;
     } else {
-        if (columnIndex === 3 && unmatched > 0) {
+        console.log("Column Index");
+        console.log(columnIndex);
+
+        console.log("Unmatched ");
+        console.log(unmatched);
+
+
+        if (columnIndex == 3 && unmatched > 0) {
 
             return board;
-        } else if (columnIndex === 3) {
+        } else if (columnIndex == 3) {
             return draw;
         } else {
 
@@ -140,6 +149,7 @@ const findVerticalMatch = (board) => {
     let columnIndex = 0;
     let unmatched = 0;
     let result = rotateThroughBoardColumns(board, columnIndex, unmatched);
+    console.log(result);
     return result;
 }
 
@@ -179,7 +189,7 @@ console.log(findMatch(movesstring));
 
 
 module.exports = {
-    intiboard, populateBoard, findHorizontalMatch,findVerticalMatch
+    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch
 }
 
 // let result  = intiboard();
