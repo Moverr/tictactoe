@@ -251,12 +251,12 @@ const findRightLeftDiagonalMatch = (board) => {
 
 const validateBoardString = (boardString) => {
     if (boardString === null || boardString === undefined) {
-        throw new Error('my error')
+        throw new Error('my error');
     }
 
     let boardarray = boardString.split("");
     if (boardarray.length !== 9) {
-        throw new Error("Invalid Board Length");
+        throw new Error('my error')
     }
 
     //validat4e of boardstring only includes specific characers 

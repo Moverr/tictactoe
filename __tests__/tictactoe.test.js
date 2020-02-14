@@ -1,9 +1,9 @@
-let { 
+let {
     intiboard, populateBoard,
-     findHorizontalMatch, findVerticalMatch ,findLeftRigtDiagonalMatch,
-     findRightLeftDiagonalMatch,
-     validateBoardString
-    } = require('../tictactoe');
+    findHorizontalMatch, findVerticalMatch, findLeftRigtDiagonalMatch,
+    findRightLeftDiagonalMatch,
+    validateBoardString
+} = require('../tictactoe');
 
 
 describe.skip("Testing the Init   Board functionality", () => {
@@ -43,7 +43,7 @@ describe.skip("Testing  the populate Board functionality", () => {
 
 })
 
- 
+
 
 describe.skip("Testing the Horizontal match functionality ", () => {
 
@@ -145,7 +145,7 @@ describe.skip("Testing the vertical  match functionality ", () => {
         expect(bestPlayer).toEqual(expectedResult);
     });
 
- 
+
 
     it("Test a draw scenario in vertical matcher", () => {
         movesstring = "xoxoxoxoo";
@@ -159,7 +159,7 @@ describe.skip("Testing the vertical  match functionality ", () => {
 
 })
 
- 
+
 
 
 describe.skip("Testing the diagonal left to right   match functionality ", () => {
@@ -201,8 +201,8 @@ describe.skip("Testing the diagonal left to right   match functionality ", () =>
 
         expect(bestPlayer).toEqual(expectedResult);
     });
-    
- 
+
+
 })
 
 
@@ -247,25 +247,29 @@ describe.skip("Testing the diagnoal right to left   match functionality ", () =>
 
         expect(bestPlayer).toEqual(expectedResult);
     });
-    
- 
+
+
 })
 
 
 
 describe("Testing the Horizontal match functionality ", () => {
-    it('should through an error on null',()=>{
+    it('should through an error on null', () => {
         expect(validateBoardString).toThrow();
     });
 
 
-    it('should through an error on null',()=>{
+    it('should through an error on null', () => {
         let boardString = "x++o";
-        expect(validateBoardString(boardString)).toThrow();
+        try {
+            validateBoardString(boardString)
+        } catch (e) {
+            expect(e).toMatch('my error');
+        }
     });
 
 
-    
+
 })
 
 
