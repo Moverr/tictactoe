@@ -1,7 +1,7 @@
 let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch ,findLeftRigtDiagonalMatch,findRightLeftDiagonalMatch} = require('../tictactoe');
 
 
-describe("Testing the Init   Board functionality", () => {
+describe.skip("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
     it("Should find out if board is an array ", () => {
@@ -19,7 +19,7 @@ describe("Testing the Init   Board functionality", () => {
 });
 
 
-describe("Testing  the populate Board functionality", () => {
+describe.skip("Testing  the populate Board functionality", () => {
 
     let movesstring = "+xxo++o++";
     let board = populateBoard(movesstring);
@@ -40,7 +40,8 @@ describe("Testing  the populate Board functionality", () => {
 
  
 
-describe("Testing the Horizontal match functionality ", () => {
+describe.skip("Testing the Horizontal match functionality ", () => {
+
 
     let player1 = "o";
     let player2 = "x";
@@ -98,7 +99,7 @@ describe("Testing the Horizontal match functionality ", () => {
 
 
 
-describe("Testing the vertical  match functionality ", () => {
+describe.skip("Testing the vertical  match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -156,7 +157,7 @@ describe("Testing the vertical  match functionality ", () => {
  
 
 
-describe("Testing the diagonal left to right   match functionality ", () => {
+describe.skip("Testing the diagonal left to right   match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -202,7 +203,7 @@ describe("Testing the diagonal left to right   match functionality ", () => {
 
 
 
-describe("Testing the diagnoal right to left   match functionality ", () => {
+describe.skip("Testing the diagnoal right to left   match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -245,6 +246,11 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
  
 })
 
+
+
+describe("Testing the Horizontal match functionality ", () => {
+    
+})
 
 
 

@@ -318,7 +318,13 @@ playGame(movesstring)
 
 
 module.exports = {
-    intiboard, populateBoard, findHorizontalMatch, findVerticalMatch, findLeftRigtDiagonalMatch, findRightLeftDiagonalMatch
+    intiboard,
+    populateBoard,
+    findHorizontalMatch,
+    findVerticalMatch,
+    findLeftRigtDiagonalMatch,
+    findRightLeftDiagonalMatch
+    , validateBoardString
 }
 
 // let result  = intiboard();
