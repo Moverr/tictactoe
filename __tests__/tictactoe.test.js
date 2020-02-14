@@ -278,7 +278,7 @@ describe("Testing the Horizontal match functionality ", () => {
         let boardString = "x++x++x++";
         let expecdtedResult = boardString.split("");
         let result =   validateBoardString(boardString);
-
+        expect(result).toEqual(expecdtedResult); 
          
     });
 

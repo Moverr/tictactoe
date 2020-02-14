@@ -260,9 +260,10 @@ const validateBoardString = (boardString) => {
     }
 
     //validat4e of boardstring only includes specific characers 
+ 
     for (let index = 0; index < boardarray.length; index++) {
         let character = boardarray[index];
-        if (character != player1 || character != player2 || character != initsymbol) {
+        if (character != player1 && character != player2 && character != initsymbol) {
             throw new Error("Invalid character, not acceptable ");
         }
     }
