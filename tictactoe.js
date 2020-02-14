@@ -254,10 +254,10 @@ const validateBoardString = (boardString) => {
         throw new Error('my error')
     }
 
-    // let boardarray = boardString.split("");
-    // if (boardarray.length !== 9) {
-    //     throw new Error("Invalid Board Length");
-    // }
+    let boardarray = boardString.split("");
+    if (boardarray.length !== 9) {
+        throw new Error("Invalid Board Length");
+    }
 
     //validat4e of boardstring only includes specific characers 
 /*

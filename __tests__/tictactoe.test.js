@@ -256,7 +256,16 @@ describe.skip("Testing the diagnoal right to left   match functionality ", () =>
 describe("Testing the Horizontal match functionality ", () => {
     it('should through an error on null',()=>{
         expect(validateBoardString).toThrow();
-    })
+    });
+
+
+    it('should through an error on null',()=>{
+        let boardString = "x++o";
+        expect(validateBoardString(boardString)).toThrow();
+    });
+
+
+    
 })
 
 
