@@ -1,7 +1,7 @@
-let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch } = require('../tictactoe');
+let { intiboard, populateBoard, findHorizontalMatch, findVerticalMatch ,findLeftRigtDiagonalMatch} = require('../tictactoe');
 
 
-describe("Testing the Init   Board functionality", () => {
+describe.skip("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
     it("Should find out if board is an array ", () => {
@@ -19,7 +19,7 @@ describe("Testing the Init   Board functionality", () => {
 });
 
 
-describe("Testing  the populate Board functionality", () => {
+describe.skip("Testing  the populate Board functionality", () => {
 
     let movesstring = "+xxo++o++";
     let board = populateBoard(movesstring);
@@ -40,7 +40,7 @@ describe("Testing  the populate Board functionality", () => {
 
  
 
-describe("Testing the Horizontal match functionality ", () => {
+describe.skip("Testing the Horizontal match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -98,7 +98,7 @@ describe("Testing the Horizontal match functionality ", () => {
 
 
 
-describe("Testing the vertical  match functionality ", () => {
+describe.skip("Testing the vertical  match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -152,6 +152,70 @@ describe("Testing the vertical  match functionality ", () => {
 
 
 })
+
+
+
+
+
+
+
+describe("Testing the vertical  match functionality ", () => {
+
+    let player1 = "o";
+    let player2 = "x";
+    let draw = 0;
+
+    let movesstring = null;
+    let board = null;
+    let bestPlayer = null;
+    let expectedResult = null;
+
+
+    it("Find the best player in vertical match", () => {
+        movesstring = "xoo+x+o+x";
+        board = populateBoard(movesstring);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
+        expectedResult = player2;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+/*
+    it("Find the best player from the second column in vertical match ", () => {
+        movesstring = "oxo+x+ox+";
+        board = populateBoard(movesstring);
+        bestPlayer = findVerticalMatch(board);
+        expectedResult = player2;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+    it("Test A scenario where the board is not filled completely and yet no decision yet in vertical match ", () => {
+        movesstring = "ox+xooxo+";
+        board = populateBoard(movesstring);
+        bestPlayer = findVerticalMatch(board);
+        expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+ 
+
+    it("Test a draw scenario in vertical matcher", () => {
+        movesstring = "xoxoxoxoo";
+        board = populateBoard(movesstring);
+        bestPlayer = findVerticalMatch(board);
+        expectedResult = draw;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+ */
+})
+
+
 
 
 
