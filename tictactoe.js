@@ -123,12 +123,14 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
         return player2;
     } else {
         if (columnIndex === 3 && unmatched > 0) {
+
             return board;
         } else if (columnIndex === 3) {
             return draw;
         } else {
 
-            return rotateThroughBoardColumns(board, columnIndex++, unmatched);
+            columnIndex = columnIndex + 1;
+            return rotateThroughBoardColumns(board, columnIndex, unmatched);
         }
 
     }
@@ -166,7 +168,7 @@ const findMatch = (moves) => {
     let vertical_match = findVerticalMatch(board);
 
 
-
+    return vertical_match;
 
 
 }
