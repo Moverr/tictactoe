@@ -101,3 +101,70 @@ describe("Testing the Horizontal match functionality ", () => {
 
 })
 
+
+
+
+
+
+
+
+
+
+describe("Testing the vertical  match functionality ", () => {
+
+    let player1 = "o";
+    let player2 = "x";
+    let draw = 0;
+
+    let movesstring = null;
+    let board = null;
+    let bestPlayer = null;
+    let expectedResult = null;
+
+
+    it("Find the best player in vertical match", () => {
+        movesstring = "xxxo++oo+";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult = player2;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+    it("Find the best player from the second row in vertical match ", () => {
+        movesstring = "x++oooxx+";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult = player1;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+    it("Test A scenario where the board is not filled completely and yet no decision yet in vertical match ", () => {
+        movesstring = "x++xooxo+";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult = [['x', '+', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+
+
+    it("Test a draw scenario in vertical matcher", () => {
+        movesstring = "xoxxooxoo";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult = draw;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+})
+
+
+
