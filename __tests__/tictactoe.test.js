@@ -79,14 +79,14 @@ describe("Find Row Match of a record ", () => {
         movesstring = "x++xooxo+";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
-        expectedResult =  [ [ 'x', '+', '+' ], [ 'x', 'o', 'o' ], [ 'x', 'o', '+' ] ];
+        expectedResult = [['x', '+', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
 
         expect(bestPlayer).toEqual(expectedResult);
     });
 
 
 
-   
+
     it("Test a draw scenario in Horizontal matcher", () => {
         movesstring = "xoxxooxoo";
         board = populateBoard(movesstring);
