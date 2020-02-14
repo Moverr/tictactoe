@@ -153,13 +153,10 @@ describe.skip("Testing the vertical  match functionality ", () => {
 
 })
 
+ 
 
 
-
-
-
-
-describe("Testing the vertical  match functionality ", () => {
+describe.skip("Testing the diagonal left to right   match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -201,6 +198,55 @@ describe("Testing the vertical  match functionality ", () => {
     
  
 })
+
+
+
+
+describe("Testing the diagnoal right to left   match functionality ", () => {
+
+    let player1 = "o";
+    let player2 = "x";
+    let draw = 0;
+
+    let movesstring = null;
+    let board = null;
+    let bestPlayer = null;
+    let expectedResult = null;
+
+
+    it("Find the best player in vertical match", () => {
+        movesstring = "xoo+x+o+x";
+        board = populateBoard(movesstring);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
+        expectedResult = player2;
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+    it("Test A scenario where the board is not filled completely and yet no decision made  ", () => {
+        movesstring = "ox+xooxo+";
+        board = populateBoard(movesstring);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
+        expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+    it("Test a draw scenario  ", () => {
+        movesstring = "xoxoxoxoo";
+        board = populateBoard(movesstring);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
+        expectedResult = draw;
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+    
+ 
+})
+
+
+
 
 
 
