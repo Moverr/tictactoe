@@ -263,6 +263,10 @@ describe("Testing the Horizontal match functionality ", () => {
     });
 
 
+    
+
+
+
     it('should through an error on null', () => {
         let boardString = "x++o";
         try {
@@ -273,8 +277,20 @@ describe("Testing the Horizontal match functionality ", () => {
     });
 
 
+    it('should not contain invalid characters', () => {
+        let boardString = "x++xy+x++";
+        try {
+            validateBoardString(boardString);
+        } catch (e) { 
+            expect(e.message).toMatch('Invalid character, not acceptable ');
+        }
+    });
+    
 
-    it('should through an error on null', () => {
+
+
+
+    it('should return a valid array ', () => {
         let boardString = "x++x++x++";
         let expecdtedResult = boardString.split("");
         let result =   validateBoardString(boardString);
