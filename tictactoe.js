@@ -54,6 +54,7 @@ const findHorizontalMatch = (board) => {
         return null;
     }
 
+    let unmatched = 0;
     //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
@@ -65,8 +66,10 @@ const findHorizontalMatch = (board) => {
                 move_o++;
             }
 
-            if (boardrow[j] == player2) {
+            else if (boardrow[j] == player2) {
                 move_x++;
+            } else {
+                unmatched++;
             }
         }
 
@@ -78,6 +81,9 @@ const findHorizontalMatch = (board) => {
             return player2;
         }
 
+    }
+    if (unmatched > 0) {
+        return board;
     }
 
     //note: 0 meaning draw in this context 
