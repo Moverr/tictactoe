@@ -210,7 +210,7 @@ const findRightLeftDiagonalMatch = (board) => {
     let move_x = 0;
     let boardrow = 0;
 
-    for (let i = board.length; i > 0; i--) {
+    for (let i = board.length-1; i > 0; i--) {
         boardrow = board[i];
         if (boardrow[i] == player1) {
             move_o++;
@@ -227,16 +227,18 @@ const findRightLeftDiagonalMatch = (board) => {
         return player1;
     }
     else if (move_x == 3) {
+        console.log(board);
         return player2;
     } else {
         let isUnmatched = findifExistsUnmatched(board);
         if (isUnmatched == true) {
+            console.log(board);
             return board;
         } else {
+            console.log(board);
             return draw;
         }
     }
-
 
 }
 
