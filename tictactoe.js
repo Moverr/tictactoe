@@ -97,7 +97,7 @@ const rotateThroughColumns = (board, columnIndex, unmatched) => {
 
     let move_o = 0;
     let move_x = 0;
-    let unmatched = 0;
+     
 
 
     for (let i = 0; i < board.length; i++) {
