@@ -274,6 +274,20 @@ describe("Testing the Horizontal match functionality ", () => {
 
 
 
+    it('should through an error on null', () => {
+        let boardString = "x++x++x++";
+        let expecdtedResult = boardString.split("");
+        let result =   validateBoardString(boardString);
+
+         
+    });
+
+
+
+
+
+
+
 })
 
 
