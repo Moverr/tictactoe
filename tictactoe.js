@@ -249,7 +249,7 @@ const findRightLeftDiagonalMatch = (board) => {
 
 }
 
-const validateBoardString = (boardString:string)=>{
+const validateBoardString = (boardString)=>{
 
 }
 
