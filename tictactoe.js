@@ -150,32 +150,26 @@ const findVerticalMatch = (board) => {
 
 
 const rotateThroughBoardDiagnoalLefttoRight = (board) => {
-
-    let columnIndex, unmatched = 0;
-
+    let unmatched = 0;
     let move_o = 0;
     let move_x = 0;
 
-    for(let i = 0; i < columnIndex){
-
-    }
-
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
-
-        if (boardrow[columnIndex] == player1) {
+        if (boardrow[i] == player1) {
             move_o++;
         }
-
-        else if (boardrow[columnIndex] == player2) {
+        else if (boardrow[i] == player2) {
             move_x++;
-        } else if (boardrow[columnIndex] == initsymbol) {
+        } else if (boardrow[i] == initsymbol) {
             unmatched++;
         } else {
 
         }
 
     }
+
+
 
     if (move_o == 3) {
         return player1;
@@ -185,15 +179,11 @@ const rotateThroughBoardDiagnoalLefttoRight = (board) => {
         return player2;
     } else {
 
-        if (columnIndex == 3 && unmatched > 0) {
+        if (unmatched > 0) {
 
             return board;
-        } else if (columnIndex == 3) {
-            return draw;
         } else {
-
-            columnIndex = columnIndex + 1;
-            return rotateThroughBoardColumns(board, columnIndex, unmatched);
+            return draw;
         }
 
     }
