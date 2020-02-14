@@ -75,9 +75,20 @@ describe("Find Row Match of a record ", () => {
     });
 
 
-
-    it("Test a draw scenario in Horizontal matcher", () => {
+    it("Test A scenario where the board is not filled completely and yet no decision yet ", () => {
         movesstring = "x++xooxo+";
+        board = populateBoard(movesstring);
+        bestPlayer = findHorizontalMatch(board);
+        expectedResult =  [ [ 'x', '+', '+' ], [ 'x', 'o', 'o' ], [ 'x', 'o', '+' ] ];
+
+        expect(bestPlayer).toEqual(expectedResult);
+    });
+
+
+
+   
+    it("Test a draw scenario in Horizontal matcher", () => {
+        movesstring = "xoxxooxoo";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
         expectedResult = draw;

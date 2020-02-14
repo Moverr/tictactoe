@@ -83,6 +83,7 @@ const findHorizontalMatch = (board) => {
 
     }
     if (unmatched > 0) {
+        console.log(board);
         return board;
     }
 
