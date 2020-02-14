@@ -250,23 +250,24 @@ const findRightLeftDiagonalMatch = (board) => {
 }
 
 const validateBoardString = (boardString) => {
-    if (boardString == null || boardString == undefined) {
-        throw new Error("Invalid Boad String ")
+    if (boardString === null || boardString === undefined) {
+        throw new Error('my error')
     }
 
-    let boardarray = boardString.split("");
-    if (boardarray.length !== 9) {
-        throw new Error("Invalid Board Length");
-    }
+    // let boardarray = boardString.split("");
+    // if (boardarray.length !== 9) {
+    //     throw new Error("Invalid Board Length");
+    // }
 
     //validat4e of boardstring only includes specific characers 
-
+/*
     for (let index = 0; index < boardarray.length; index++) {
         let character = boardarray[index];
         if (character != player1 || character != player2 || character != initsymbol) {
             throw new Error("Invalid character, not acceptable ");
         }
     }
+    */
 
 
 }
