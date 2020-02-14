@@ -149,7 +149,7 @@ const findVerticalMatch = (board) => {
 }
 
 
-const rotateThroughBoardHorizontalLefttoRight = (board, columnIndex, unmatched) => {
+const rotateThroughBoardDiagnoalLefttoRight = (board, columnIndex, unmatched) => {
 
     let move_o = 0;
     let move_x = 0;
