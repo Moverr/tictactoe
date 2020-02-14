@@ -217,7 +217,7 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
     it("Find the best player in vertical match", () => {
         movesstring = "xoo+x+o+x";
         board = populateBoard(movesstring);
-        bestPlayer = findLeftRigtDiagonalMatch(board);
+        bestPlayer = findRightLeftDiagonalMatch(board);
         expectedResult = player2;
         expect(bestPlayer).toEqual(expectedResult);
     });
@@ -226,7 +226,7 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
     it("Test A scenario where the board is not filled completely and yet no decision made  ", () => {
         movesstring = "ox+xooxo+";
         board = populateBoard(movesstring);
-        bestPlayer = findLeftRigtDiagonalMatch(board);
+        bestPlayer = findRightLeftDiagonalMatch(board);
         expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
 
         expect(bestPlayer).toEqual(expectedResult);
@@ -236,7 +236,7 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
     it("Test a draw scenario  ", () => {
         movesstring = "xoxoxoxoo";
         board = populateBoard(movesstring);
-        bestPlayer = findLeftRigtDiagonalMatch(board);
+        bestPlayer = findRightLeftDiagonalMatch(board);
         expectedResult = draw;
 
         expect(bestPlayer).toEqual(expectedResult);

@@ -208,6 +208,7 @@ const findRightLeftDiagonalMatch = (board) => {
     let unmatched = 0;
     let move_o = 0;
     let move_x = 0;
+    let boardrow = 0;
 
     for (let i = board.length; i > 0; i--) {
         boardrow = board[i];
