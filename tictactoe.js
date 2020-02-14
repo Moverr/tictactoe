@@ -155,7 +155,7 @@ const findifExistsUnmatched = (board) => {
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
 
-        if (boardrow[columnIndex] == initsymbol) {
+        if (boardrow[i] == initsymbol) {
             return true;
         }
 
@@ -242,10 +242,12 @@ const findMatch = (moves) => {
     }
     let board = populateBoard(moves);
     // let horizontal_match = findHorizontalMatch(board);
-    let vertical_match = findVerticalMatch(board);
+    // let vertical_match = findVerticalMatch(board);
+    let diagnoal_leftright_match = findLeftRigtDiagonalMatch(board);
 
 
-    return vertical_match;
+    console.log(diagnoal_leftright_match);
+    // return vertical_match;
 
 
 }
