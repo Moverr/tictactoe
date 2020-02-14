@@ -221,7 +221,7 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
         expectedResult = player2;
         expect(bestPlayer).toEqual(expectedResult);
     });
-/*
+
 
     it("Test A scenario where the board is not filled completely and yet no decision made  ", () => {
         movesstring = "ox+xooxo+";
@@ -234,13 +234,13 @@ describe("Testing the diagnoal right to left   match functionality ", () => {
 
 
     it("Test a draw scenario  ", () => {
-        movesstring = "xoxoxoxoo";
+        movesstring = "xoxxooxoo";
         board = populateBoard(movesstring);
         bestPlayer = findRightLeftDiagonalMatch(board);
         expectedResult = draw;
 
         expect(bestPlayer).toEqual(expectedResult);
-    }); */
+    });
     
  
 })
