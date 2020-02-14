@@ -246,8 +246,8 @@ const findMatch = (moves) => {
     let diagnoal_leftright_match = findLeftRigtDiagonalMatch(board);
 
 
-    console.log(diagnoal_leftright_match);
-    // return vertical_match;
+    // console.log(diagnoal_leftright_match);
+    return diagnoal_leftright_match;
 
 
 }
