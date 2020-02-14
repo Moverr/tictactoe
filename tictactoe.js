@@ -168,33 +168,23 @@ const findLeftRigtDiagonalMatch = (board) => {
         } else {
 
         }
-
     }
-
-
-
     if (move_o == 3) {
         return player1;
     }
-
     else if (move_x == 3) {
         return player2;
     } else {
-
-        //todo: get unmatched: loop through the whole to find any single item that looks like  x
-        if (unmatched > 0) {
-
+        let isUnmatched = findifExistsUnmatched(board);
+        if (isUnmatched == true) {
             return board;
         } else {
             return draw;
         }
-
     }
-
-
 }
 
-const findExistingofXinBoard = (board) => {
+const findifExistsUnmatched = (board) => {
     let boardrow = 0;
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
