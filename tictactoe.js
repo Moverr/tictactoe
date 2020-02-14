@@ -92,11 +92,12 @@ const findHorizontalMatch = (board) => {
 
 }
 
-const rotateThroughColumns = (board,columnIndex)=>{
+const rotateThroughColumns = (board, columnIndex, unmatched) => {
 
-     
+
     let move_o = 0;
     let move_x = 0;
+    let unmatched = 0;
 
 
     for (let i = 0; i < board.length; i++) {
@@ -112,29 +113,31 @@ const rotateThroughColumns = (board,columnIndex)=>{
             unmatched++;
         }
 
+    }
 
-        if (i < board.length) {
-            continue;
-        }
+    if (move_o == 3) {
+        return player1;
+    }
 
-
-        if (move_o == 3) {
-            return player1;
-        }
-
-        else if (move_x == 3) {
-            return player2;
+    else if (move_x == 3) {
+        return player2;
+    } else {
+        if (columnIndex === 3 && unmatched > 0) {
+            return board;
+        } else if (columnIndex === 3) {
+            return draw;
         } else {
-            if (columnIndex < boardrow.length) {
-                columnIndex++;
-                move_o = 0;
-                move_x = 0;
 
-                continue;
-            }
+            rotateThroughColumns(board, columnIndex++, unmatched);
         }
+        // columnIndex++;
+        // move_o = 0;
+        // move_x = 0;
+
 
     }
+
+
 
 
 }
