@@ -176,43 +176,30 @@ describe("Testing the vertical  match functionality ", () => {
         board = populateBoard(movesstring);
         bestPlayer = findLeftRigtDiagonalMatch(board);
         expectedResult = player2;
-
         expect(bestPlayer).toEqual(expectedResult);
     });
 
 
-/*
-    it("Find the best player from the second column in vertical match ", () => {
-        movesstring = "oxo+x+ox+";
-        board = populateBoard(movesstring);
-        bestPlayer = findVerticalMatch(board);
-        expectedResult = player2;
-
-        expect(bestPlayer).toEqual(expectedResult);
-    });
-
-
-    it("Test A scenario where the board is not filled completely and yet no decision yet in vertical match ", () => {
+    it("Test A scenario where the board is not filled completely and yet no decision made  ", () => {
         movesstring = "ox+xooxo+";
         board = populateBoard(movesstring);
-        bestPlayer = findVerticalMatch(board);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
         expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
 
         expect(bestPlayer).toEqual(expectedResult);
     });
 
- 
 
-    it("Test a draw scenario in vertical matcher", () => {
+    it("Test a draw scenario  ", () => {
         movesstring = "xoxoxoxoo";
         board = populateBoard(movesstring);
-        bestPlayer = findVerticalMatch(board);
+        bestPlayer = findLeftRigtDiagonalMatch(board);
         expectedResult = draw;
 
         expect(bestPlayer).toEqual(expectedResult);
     });
-
- */
+    
+ 
 })
 
 
