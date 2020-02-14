@@ -92,6 +92,7 @@ const findHorizontalMatch = (board) => {
 
 }
 
+
 const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
 
     let move_o = 0;
@@ -275,6 +276,53 @@ const validateBoardString = (boardString) => {
 }
 
 
+//todo: rule number one 
+const placeHorizontalWin = (board) => {
+
+    if (!Array.isArray(board)) {
+        return null;
+    }
+
+    let unmatched = 0;
+    //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+        let move_o = 0;
+        let move_x = 0;
+
+        for (let j = 0; j < boardrow.length; j++) {
+            if (boardrow[j] == player1) {
+                move_o++;
+            }
+
+            else if (boardrow[j] == player2) {
+                move_x++;
+            } else {
+                unmatched++;
+            }
+        }
+
+        if (move_o == 3) {
+            return player1;
+        }
+
+        if (move_x == 3) {
+            return player2;
+        }
+
+    }
+    if (unmatched > 0) {
+        console.log(board);
+        return board;
+    }
+
+    //note: 0 meaning draw in this context 
+    return draw;
+
+}
+
+
+
 const playGame = (boardstring) => {
     if (boardstring == undefined) {
         return null;
@@ -282,8 +330,13 @@ const playGame = (boardstring) => {
 
     //todo:   validate board string 
     let boardArray = validateBoardString(boardstring)
+    let board = populateBoard(boardstring);
 
-
+    //todo: Win if a player [computer] has two in a row, they can place the third to win. 
+    // player1 = "o";
+    
+    console.log(board);
+ 
 
     // let movesarray = moves.split("");
 
