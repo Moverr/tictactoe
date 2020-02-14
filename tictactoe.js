@@ -139,7 +139,6 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
 }
 
 const findVerticalMatch = (board) => {
-
     if (!Array.isArray(board)) {
         return null;
     }
@@ -163,7 +162,8 @@ const findMatch = (moves) => {
         return null;
     }
     let board = populateBoard(moves);
-    let horizontal_match = findHorizontalMatch(board);
+    // let horizontal_match = findHorizontalMatch(board);
+    let vertical_match = findVerticalMatch(board);
 
 
 
@@ -176,9 +176,9 @@ let movesstring = "+xxo++o++";
 //todo: convert  string to array 
 let movesarray = movesstring.split("");
 
-console.log(populateBoard(movesstring));
+console.log(findMatch(movesstring));
 
-initial_board = intiboard();
+// initial_board = intiboard();
 
 
 
