@@ -149,7 +149,9 @@ const findVerticalMatch = (board) => {
 }
 
 
-const rotateThroughBoardDiagnoalLefttoRight = (board) => {
+
+const findLeftRigtDiagonalMatch = (board) => {
+
     let unmatched = 0;
     let move_o = 0;
     let move_x = 0;
@@ -179,6 +181,7 @@ const rotateThroughBoardDiagnoalLefttoRight = (board) => {
         return player2;
     } else {
 
+        //todo: get unmatched: loop through the whole to find any single item that looks like  x
         if (unmatched > 0) {
 
             return board;
@@ -187,11 +190,21 @@ const rotateThroughBoardDiagnoalLefttoRight = (board) => {
         }
 
     }
+
+
 }
 
+const findExistingofXinBoard = (board) => {
+    let boardrow = 0;
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
 
-const findLeftRigtDiagonalMatch = () => {
+        if (boardrow[columnIndex] == initsymbol) {
+            return true;
+        }
 
+    }
+    return false;
 }
 
 const findRightLeftDiagonalMatch = () => {
