@@ -492,57 +492,7 @@ const playRightLeftDiagonalWin = (board, callback) => {
 //block the other player from winining
 
 //Look through rows to find if exists 2 matched then add the third one to win  
-const placeHorizontalWin = (board, callback) => {
-
-    if (!Array.isArray(board)) {
-        return null;
-    }
-
-
-    let boardrow = null;
-    //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
-    for (let i = 0; i < board.length; i++) {
-        boardrow = board[i];
-
-        let move_o = 0;
-        let move_x = 0;
-        let unmatched = 0;
-
-
-        for (let j = 0; j < boardrow.length; j++) {
-
-
-            if (boardrow[j] == player1) {
-                move_o++;
-            }
-
-            else if (boardrow[j] == player2) {
-                move_x++;
-            } else {
-
-                unmatched++;
-            }
-        }
-
-        if (move_o == 2 && move_x == 0 && unmatched == 1) {
-
-            //todo: place  a move o to the unmatched 
-            for (let j = 0; j < boardrow.length; j++) {
-                if (boardrow[j] == initsymbol) {
-                    boardrow[j] = player1;
-
-                    return callback(true, board);
-                }
-            }
-        }
-
-
-    }
-    return callback(false, board);
-
-}
-
-
+ 
 
 
 // Loook through vertical columns and see if there exists any two players on which to add the other one to win the game
@@ -863,7 +813,7 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "x+oxo++x+";
+let movesstring = "x+oxx+ox+";
 
 
 
@@ -887,6 +837,7 @@ module.exports = {
     , placeVerticalWin
     , playLeftRigtDiagonalWin
     , playRightLeftDiagonalWin
+    ,placeHorizontalBlock
 }
 
 // let result  = intiboard();
