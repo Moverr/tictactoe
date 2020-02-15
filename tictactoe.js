@@ -80,7 +80,6 @@ const findHorizontalMatch = (board) => {
 
     }
     if (unmatched > 0) {
-        console.log(board);
         return board;
     }
 
@@ -489,7 +488,7 @@ const playRightLeftDiagonalWin = (board, callback) => {
 //block the other player from winining
 
 //Look through rows to find if exists 2 matched then add the third one to win  
- 
+
 
 
 // Loook through vertical columns and see if there exists any two players on which to add the other one to win the game
@@ -673,7 +672,7 @@ const playRightLeftDiagonalBlock = (board, callback) => {
         boardIndex--;
 
     }
- 
+
 
     if (move_x == 2 && move_o == 0 && unmatched == 1) {
         boardIndex = board.length - 1;
@@ -707,27 +706,48 @@ const playGame = (boardstring) => {
     let board = null;
 
     // 1) if empty string  or undefined meaning, the computer is playing first 
-    if (boardstring == undefined || boardstring == "") { 
-         //todo: play the first branch
-         initial_best_move = "++++o++++"; 
-           board = populateBoard(initial_best_move);
-           return board;
+    if (boardstring == undefined || boardstring == "") {
+        //todo: play the first branch
+        initial_best_move = "++++o++++";
+        board = populateBoard(initial_best_move);
+        return board;
     }
 
     //2) Check if there is a matching win already 
+    {
+        let result = findHorizontalMatch(board);
+
+        if (result == board) {
+            result = findVerticalMatch(board);
+            if (result == board) {
+                result = findLeftRigtDiagonalMatch(board);
+                if (result == board) {
+                    result = findRightLeftDiagonalMatch(board);
+                } else {
+                    return board;
+                }
+            } else {
+                return board;
+            }
+
+        } else {
+            return board;
+        }
+
+    }
 
     //3) Check  to see that there are 2 matches so that a best win can be played  
     {
         //check 1
-        placeHorizontalWin(board, (status, result) => {           
+        placeHorizontalWin(board, (status, result) => {
             if (status == true) {
                 board = result;
                 return board;
             }
 
             // check 2 
-            placeVerticalWin(board,0,0, (status, result) => {                 
-        
+            placeVerticalWin(board, 0, 0, (status, result) => {
+
                 if (status == true) {
                     board = result;
                     return board;
@@ -735,14 +755,14 @@ const playGame = (boardstring) => {
 
                 //check 3
                 playLeftRigtDiagonalWin(board, (status, result) => {
-                    
+
                     if (status == true) {
                         board = result;
                         return board;
                     }
 
                     //check 4 
-                    playRightLeftDiagonalWin(board, (status, result) => {                         
+                    playRightLeftDiagonalWin(board, (status, result) => {
                         if (status == true) {
                             board = result;
                             return board;
@@ -751,7 +771,7 @@ const playGame = (boardstring) => {
 
                 })
             })
-    
+
         })
 
 
@@ -808,17 +828,17 @@ const playGame = (boardstring) => {
 
 
 
-/*
-    playRightLeftDiagonalWin(board, (status, result) => {
-        //todo: return back to the status of the move 
-        console.log(result);
-
-        if (status == true) {
-            board = result;
-            return board;
-        }
-    })
-*/
+    /*
+        playRightLeftDiagonalWin(board, (status, result) => {
+            //todo: return back to the status of the move 
+            console.log(result);
+    
+            if (status == true) {
+                board = result;
+                return board;
+            }
+        })
+    */
 
 
 
@@ -834,7 +854,7 @@ const playGame = (boardstring) => {
 
 
     // Blocking the opponent from winning 
-  
+
     /*
 
     placeHorizontalBlock(board, (status, result) => {
@@ -902,10 +922,10 @@ module.exports = {
     , placeVerticalWin
     , playLeftRigtDiagonalWin
     , playRightLeftDiagonalWin
-    ,placeHorizontalBlock
-    ,placeVerticalBlock
-    ,playLeftRigtDiagonalBlock
-    ,playRightLeftDiagonalBlock
+    , placeHorizontalBlock
+    , placeVerticalBlock
+    , playLeftRigtDiagonalBlock
+    , playRightLeftDiagonalBlock
 }
 
 // let result  = intiboard();
