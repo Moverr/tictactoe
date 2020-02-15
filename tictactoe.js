@@ -736,7 +736,30 @@ const playGame = (boardstring) => {
 
     }
     //3) Block if oponent already has two matching 
+    placeHorizontalBlock(board, (status, result) => {
+        if (status == true) {
+            board = result;
+            return board;
+        }
+        placeVerticalBlock(board, 0, 0, (status, result) => {
+            if (status == true) {
+                board = result;
+                return board;
+            }
 
+            playLeftRigtDiagonalBlock(board, (status, result) => {
+
+                if (status == true) {
+                    board = result;
+                    return board;
+                }
+
+
+            })
+
+
+        })
+    })
     //4) Check  to see that there are 2 matches so that a best win can be played  
     {
         //check 1
