@@ -451,26 +451,10 @@ describe("Testinng a possible win where there 2 oo in diagonal left to right  ",
     })
 
 
-    /*
-
-    it('should play  the first column in the next column ', () => {
-
-        let boardstring = "+o+xo+++x";
-        let board = populateBoard(boardstring);
-        let expecdtedResult = [['+', 'o', '+'], ['x', 'o', '+'], ['+', 'o', 'x']];
+  
 
 
-        const callback = (status, result) => {
-            expect(status).toEqual(true);
-            expect(result).toEqual(expecdtedResult);
-        }
-
-        placeVerticalWin(board, 0, 0, callback);
-    })
-
-
-
-    it('should not make any playing since there are no two records in the same row ', () => {
+    it('should not make any playing since there are no two records in the same diagnoal  ', () => {
 
         let boardstring = "o+x+xo+++";
         let board = populateBoard(boardstring);
@@ -483,12 +467,10 @@ describe("Testinng a possible win where there 2 oo in diagonal left to right  ",
             expect(result).toEqual(expecdtedResult);
         }
 
-        placeVerticalWin(board, 0, 0, callback);
+        playLeftRigtDiagonalWin(board, callback);
     })
 
-    */
- 
-
+   
 })
 
 
