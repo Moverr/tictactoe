@@ -141,7 +141,7 @@ const findVerticalMatch = (board) => {
     let columnIndex = 0;
     let unmatched = 0;
     let result = rotateThroughBoardColumns(board, columnIndex, unmatched);
-    console.log(result);
+    // console.log(result);
     return result;
 }
 
@@ -185,15 +185,15 @@ const findLeftRigtDiagonalMatch = (board) => {
         return player1;
     }
     else if (move_x == 3) {
-        console.log(board);
+        // console.log(board);
         return player2;
     } else {
         let isUnmatched = findifExistsUnmatched(board);
         if (isUnmatched == true) {
-            console.log(board);
+            // console.log(board);
             return board;
         } else {
-            console.log(board);
+            // console.log(board);
             return draw;
         }
     }
@@ -713,6 +713,8 @@ const playGame = (boardstring) => {
         return board;
     }
 
+    board = populateBoard(boardstring);
+
     //2) Check if there is a matching win already 
     {
         let result = findHorizontalMatch(board);
@@ -736,30 +738,41 @@ const playGame = (boardstring) => {
 
     }
     //3) Block if oponent already has two matching 
-    placeHorizontalBlock(board, (status, result) => {
-        if (status == true) {
-            board = result;
-            return board;
-        }
-        placeVerticalBlock(board, 0, 0, (status, result) => {
+    {
+        placeHorizontalBlock(board, (status, result) => {
             if (status == true) {
                 board = result;
                 return board;
             }
-
-            playLeftRigtDiagonalBlock(board, (status, result) => {
-
+            placeVerticalBlock(board, 0, 0, (status, result) => {
                 if (status == true) {
                     board = result;
                     return board;
                 }
 
+                playLeftRigtDiagonalBlock(board, (status, result) => {
+
+                    if (status == true) {
+                        board = result;
+                        return board;
+                    }
+
+
+                    playRightLeftDiagonalBlock(board, (status, result) => {
+
+                        if (status == true) {
+                            board = result;
+                            return board;
+                        }
+
+                    })
+
+                })
+
 
             })
-
-
         })
-    })
+    }
     //4) Check  to see that there are 2 matches so that a best win can be played  
     {
         //check 1
@@ -800,123 +813,10 @@ const playGame = (boardstring) => {
 
 
     }
-
-
-    //todo:   validate board string 
-    let boardArray = validateBoardString(boardstring)
-    // let board = populateBoard(boardstring);
-
-    //todo: Win if a player [computer] has two in a row, they can place the third to win. 
-    //decide when to know a win in a horizontal flow 
-    //todo:  add the third item to win 
-    /* placeHorizontalWin(board, (status, result) => {
-         //todo: return back to the status of the move 
-         console.log(result);
  
-         if (status == true) {
-             board = result;
-             return board;
-         }
-     }) */
 
-
-
-
-    /*
-    //todo: block the opponent if they have two in a row  : 
-    placeVerticalWin(board,0,0, (status, result) => {
-        //todo: return back to the status of the move 
-        console.log(result);
-
-        // if (status == true) {
-        //     board = result;
-        //     return board;
-        // }
-    })
-
-    */
-
-
-    /*  playLeftRigtDiagonalWin(board, (status, result) => {
-          //todo: return back to the status of the move 
-          console.log(result);
-  
-          if (status == true) {
-              board = result;
-              return board;
-          }
-      })
-  
-  
-  */
-
-
-
-    /*
-        playRightLeftDiagonalWin(board, (status, result) => {
-            //todo: return back to the status of the move 
-            console.log(result);
-    
-            if (status == true) {
-                board = result;
-                return board;
-            }
-        })
-    */
-
-
-
-    // console.log(board);
-
-
-    // let movesarray = moves.split("");
-
-    // console.log(movesarray.length);
-    // let board = populateBoard(moves);
-
-    // console.log(board);
-
-
-    // Blocking the opponent from winning 
-
-    /*
-
-    placeHorizontalBlock(board, (status, result) => {
-        //todo: return back to the status of the move 
-        console.log(result);
-
-        if (status == true) {
-            board = result;
-            return board;
-        }
-    })
-
-
-     
-
-
-
-    placeVerticalBlock(board,0,0, (status, result) => {
-        //todo: return back to the status of the move 
-        console.log(result);
-
-        // if (status == true) {
-        //     board = result;
-        //     return board;
-        // }
-    })
-
-*/
-
-    /* let board = populateBoard(moves);
-    // let horizontal_match = findHorizontalMatch(board);
-    // let vertical_match = findVerticalMatch(board);
-    let diagnoal_leftright_match = findLeftRigtDiagonalMatch(board);
-
-
-    // console.log(diagnoal_leftright_match);
-    return diagnoal_leftright_match;
-    */
+ 
+    return board;
 
 
 }
@@ -926,7 +826,7 @@ let movesstring = "x+oxx+ox+";
 
 
 
-playGame(movesstring)
+console.log(playGame(movesstring))
 // console.log(findMatch(movesstring));
 
 // initial_board = intiboard();
