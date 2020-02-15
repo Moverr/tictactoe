@@ -380,6 +380,45 @@ const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
  
 
 
+const playLeftRigtDiagonalWin = (board,callback) => {
+
+    let unmatched = 0;
+    let move_o = 0;
+    let move_x = 0;
+    let boardrow = 0;
+
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+        if (boardrow[i] == player1) {
+            move_o++;
+        }
+        else if (boardrow[i] == player2) {
+            move_x++;
+        } else if (boardrow[i] == initsymbol) {
+            unmatched++;
+        } else {
+
+        }
+    }
+
+    if (move_o == 2 && move_x == 0 && unmatched == 1) {
+        
+    for (let i = 0; i < board.length; i++) {
+
+        if (boardrow[i] == initsymbol) {
+            boardrow[i] = player1;
+
+            return callback(true, board);
+        }
+
+    }
+
+    }
+     
+
+}
+
+
 
 
 
