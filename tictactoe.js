@@ -750,12 +750,8 @@ const playGame = (boardstring) => {
                     })
 
                 })
-
-
             })
     
-            
-
         })
 
 
