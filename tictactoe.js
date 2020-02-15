@@ -375,11 +375,7 @@ const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
     }
 
     return callback(false, board);
-
-
-
-
-
+ 
 }
 
  
@@ -448,11 +444,11 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "+o+xo+++x";
+let movesstring = "++ox+o+xo";
 
 
 
-playGame(movesstring)
+// playGame(movesstring)
 // console.log(findMatch(movesstring));
 
 // initial_board = intiboard();

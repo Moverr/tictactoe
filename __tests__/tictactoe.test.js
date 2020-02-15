@@ -393,7 +393,7 @@ describe("Testinng a possible win where there 2 oo in a column ", () => {
 
     it('should play  the first column in the next column ', () => {
 
-        let boardstring = "+o+xo++++x";
+        let boardstring = "+o+xo+++x";
         let board = populateBoard(boardstring);
         let expecdtedResult = [['+', 'o', '+'], ['x', 'o', '+'], ['+', 'o', 'x']];
 
@@ -404,6 +404,7 @@ describe("Testinng a possible win where there 2 oo in a column ", () => {
             expect(result).toEqual(expecdtedResult);
         }
 
+        console.log(board);
         placeVerticalWin(board,0,0, callback);
     })
 
