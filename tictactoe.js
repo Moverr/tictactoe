@@ -579,7 +579,7 @@ const placeHorizontalBlock = (board, callback) => {
             }
         }
 
-        if (move_o == 2 && move_x == 0 && unmatched == 1) {
+        if (move_x == 2 && move_o == 0 && unmatched == 1) {
 
             //todo: place  a move o to the unmatched 
             for (let j = 0; j < boardrow.length; j++) {
@@ -834,7 +834,18 @@ const playGame = (boardstring) => {
 
     // console.log(board);
 
-    placeVerticalBlock
+    
+
+    placeHorizontalBlock(board, (status, result) => {
+        //todo: return back to the status of the move 
+        console.log(result);
+
+        if (status == true) {
+            board = result;
+            return board;
+        }
+    })
+
 
 
 
