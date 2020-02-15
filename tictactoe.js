@@ -370,7 +370,7 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "xx+o++o+x";
+let movesstring = "oo+x++x+x";
 
 
 

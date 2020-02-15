@@ -257,13 +257,13 @@ describe.skip("Testing the Horizontal match functionality ", () => {
     it('should through an error on null', () => {
         try {
             validateBoardString();
-        } catch (e) { 
+        } catch (e) {
             expect(e.message).toMatch('Invalid Boad String');
         }
     });
 
 
-    
+
 
 
 
@@ -271,7 +271,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
         let boardString = "x++o";
         try {
             validateBoardString(boardString);
-        } catch (e) { 
+        } catch (e) {
             expect(e.message).toMatch('Invalid Board Length');
         }
     });
@@ -281,11 +281,11 @@ describe.skip("Testing the Horizontal match functionality ", () => {
         let boardString = "x++xy+x++";
         try {
             validateBoardString(boardString);
-        } catch (e) { 
+        } catch (e) {
             expect(e.message).toMatch('Invalid character, not acceptable ');
         }
     });
-    
+
 
 
 
@@ -293,9 +293,9 @@ describe.skip("Testing the Horizontal match functionality ", () => {
     it('should return a valid array ', () => {
         let boardString = "x++x++x++";
         let expecdtedResult = boardString.split("");
-        let result =   validateBoardString(boardString);
-        expect(result).toEqual(expecdtedResult); 
-         
+        let result = validateBoardString(boardString);
+        expect(result).toEqual(expecdtedResult);
+
     });
 
 
@@ -304,12 +304,20 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
 describe("Testinng a possible win where there 2 oo in a row ", () => {
-    
-    let boardString = "x++x++x++";
+
+    let boardString = "oo+x++x+x";
     let expecdtedResult = boardString.split("");
-    let result =   validateBoardString(boardString);
-    expect(result).toEqual(expecdtedResult); 
+
+    placeHorizontalWin(board, (status, result) => {
+        //todo: return back to the status of the move 
+        if (status == true) {            
+            expect(result).toEqual(expecdtedResult);
+        }
+    })
     
+
+   
+
 
 })
 
