@@ -277,54 +277,54 @@ const validateBoardString = (boardString) => {
 
 
 //todo: rule number one 
-const placeHorizontalWin = (board,callback) => {
+const placeHorizontalWin = (board, callback) => {
 
     if (!Array.isArray(board)) {
         return null;
     }
 
-    
+
     let boardrow = null;
     //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
-         
+
         let move_o = 0;
         let move_x = 0;
         let unmatched = 0;
-    
+
 
         for (let j = 0; j < boardrow.length; j++) {
 
-            
+
             if (boardrow[j] == player1) {
-                                 move_o++;
+                move_o++;
             }
 
             else if (boardrow[j] == player2) {
                 move_x++;
             } else {
-                 
+
                 unmatched++;
             }
         }
-  
+
         if (move_o == 2 && move_x == 0 && unmatched == 1) {
 
-             //todo: place  a move o to the unmatched 
+            //todo: place  a move o to the unmatched 
             for (let j = 0; j < boardrow.length; j++) {
-                if (boardrow[j] == initsymbol) {                     
+                if (boardrow[j] == initsymbol) {
                     boardrow[j] = player1;
-                     
+
                     return callback(true, board);
                 }
             }
         }
 
-        
-    } 
-    return callback(false, board); 
-        
+
+    }
+    return callback(false, board);
+
 }
 
 
@@ -333,7 +333,7 @@ const placeVerticalWin = (board, columnIndex, unmatched) => {
 
     let move_o = 0;
     let move_x = 0;
-    
+
 
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
@@ -352,8 +352,27 @@ const placeVerticalWin = (board, columnIndex, unmatched) => {
 
     }
 
-    columnIndex = columnIndex + 1;
-    return rotateThroughBoardColumns(board, columnIndex, unmatched);
+
+    if (move_o == 2 && move_x == 0 && unmatched == 1) {
+
+        //todo: place  a move o to the unmatched 
+        for (let j = 0; j < boardrow.length; j++) {
+            if (boardrow[j] == initsymbol) {
+                boardrow[j] = player1;
+
+                return callback(true, board);
+            }
+        }
+    }
+
+    if (columnIndex < board.length - 1) {
+        columnIndex = columnIndex + 1;
+        return placeVerticalWin(board, columnIndex, unmatched);
+
+    }
+
+
+
 
 }
 
@@ -390,15 +409,15 @@ const playGame = (boardstring) => {
     placeHorizontalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         console.log(result);
-           
+
         if (status == true) {
             board = result;
             return board;
         }
-    })   
+    })
     //todo: block the opponent if they have two in a row  : 
 
-     
+
 
     // console.log(board);
 
@@ -446,7 +465,7 @@ module.exports = {
     findLeftRigtDiagonalMatch,
     findRightLeftDiagonalMatch
     , validateBoardString
-    ,placeHorizontalWin
+    , placeHorizontalWin
 }
 
 // let result  = intiboard();
