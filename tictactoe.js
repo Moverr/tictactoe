@@ -739,39 +739,53 @@ const playGame = (boardstring) => {
     }
     //3) Block if oponent already has two matching 
     {
+        let resultstatus;
         placeHorizontalBlock(board, (status, result) => {
             if (status == true) {
+                resultstatus = status
                 board = result;
-                return board;
             }
-            placeVerticalBlock(board, 0, 0, (status, result) => {
-                if (status == true) {
-                    board = result;
-                    return board;
-                }
+        });
 
-                playLeftRigtDiagonalBlock(board, (status, result) => {
+        if (resultstatus == true) {
+            return board;
+        }
 
-                    if (status == true) {
-                        board = result;
-                        return board;
-                    }
+        placeVerticalBlock(board, 0, 0, (status, result) => {
+            if (status == true) {
+                resultstatus = status
+                board = result;
+            }
+        });
+
+        if (resultstatus == true) {
+            return board;
+        }
+
+        playLeftRigtDiagonalBlock(board, (status, result) => {
+
+            if (status == true) {
+                resultstatus = status
+                board = result;
+            }
+        });
+
+        if (resultstatus == true) {
+            return board;
+        }
+
+        playRightLeftDiagonalBlock(board, (status, result) => {
+            if (status == true) {
+                resultstatus = status
+                board = result;
+            }
+        });
+
+        if (resultstatus == true) {
+            return board;
+        }
 
 
-                    playRightLeftDiagonalBlock(board, (status, result) => {
-
-                        if (status == true) {
-                            board = result;
-                            return board;
-                        }
-
-                    })
-
-                })
-
-
-            })
-        })
     }
     //4) Check  to see that there are 2 matches so that a best win can be played  
     {
@@ -813,9 +827,9 @@ const playGame = (boardstring) => {
 
 
     }
- 
 
- 
+
+
     return board;
 
 
