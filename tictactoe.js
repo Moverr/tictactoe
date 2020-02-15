@@ -276,7 +276,7 @@ const validateBoardString = (boardString) => {
 }
 
 
-//todo: rule number one 
+//Look through rows to find if exists 2 matched then add the third one to win  
 const placeHorizontalWin = (board, callback) => {
 
     if (!Array.isArray(board)) {
@@ -329,9 +329,8 @@ const placeHorizontalWin = (board, callback) => {
 
 
 
+// Loook through vertical columns and see if there exists any two players on which to add the other one to win the game
 const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
-
-     
     let move_o = 0;
     let move_x = 0;
     let boardrow = 0;
@@ -405,6 +404,8 @@ const playGame = (boardstring) => {
             return board;
         }
     }) */
+
+    /*
     //todo: block the opponent if they have two in a row  : 
     placeVerticalWin(board,0,0, (status, result) => {
         //todo: return back to the status of the move 
@@ -415,6 +416,7 @@ const playGame = (boardstring) => {
         //     return board;
         // }
     })
+    */
 
 
 
