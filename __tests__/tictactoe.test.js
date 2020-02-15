@@ -310,12 +310,13 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
     it('should play the next in line row to win the game', () => {
 
         let boardstring = "o+ox++x+x";
-        let board =  placeHorizontalWin(boardstring);        
+        let board =  populateBoard(boardstring);        
         let expecdtedResult = [['o', 'o', 'o'], ['x', '+', '+'], ['x', '+', 'x']];
 
 
         const callback = (status,result)=>{
-
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
         }
 
         placeHorizontalWin(board,callback)
@@ -329,7 +330,7 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
         let board =  placeHorizontalWin(boardstring);
 
    
-        let expecdtedResult = [['o', '+', '+'], ['x', '+', '+'], ['x', '+', 'x']];
+        // let expecdtedResult = [['o', '+', '+'], ['x', '+', '+'], ['x', '+', 'x']];
 
         // placeHorizontalWin(board, (status, result) => {
              
