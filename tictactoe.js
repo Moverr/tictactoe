@@ -707,13 +707,14 @@ const playRightLeftDiagonalBlock = (board, callback) => {
 
 
 const playGame = (boardstring) => {
-    if (boardstring == undefined) {
-        return null;
+    let board = null;
+    if (boardstring == undefined || boardstring == "") {
+         board = intiboard();
     }
 
     //todo:   validate board string 
     let boardArray = validateBoardString(boardstring)
-    let board = populateBoard(boardstring);
+    // let board = populateBoard(boardstring);
 
     //todo: Win if a player [computer] has two in a row, they can place the third to win. 
     //decide when to know a win in a horizontal flow 
@@ -786,7 +787,8 @@ const playGame = (boardstring) => {
 
 
     // Blocking the opponent from winning 
-    
+  
+    /*
 
     placeHorizontalBlock(board, (status, result) => {
         //todo: return back to the status of the move 
@@ -813,7 +815,7 @@ const playGame = (boardstring) => {
         // }
     })
 
-
+*/
 
     /* let board = populateBoard(moves);
     // let horizontal_match = findHorizontalMatch(board);
