@@ -371,12 +371,31 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 describe("Testinng a possible win where there 2 oo in a column ", () => {
 
-
+/*
     it('should play a the middle character on the first column grid ', () => {
 
         let boardstring = "o+xo++++x";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['o', '+', '+'], ['+', '+', 'x']];
+        let expecdtedResult = [['o', '+', 'x'], ['o', '+', '+'], ['o', '+', 'x']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeVerticalWin(board,0,0, callback);
+    })
+*/
+
+
+
+    it('should play  the first column in the next column ', () => {
+
+        let boardstring = "+o+xo++++x";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['+', 'o', '+'], ['x', 'o', '+'], ['+', 'o', 'x']];
 
 
         const callback = (status, result) => {
@@ -389,26 +408,7 @@ describe("Testinng a possible win where there 2 oo in a column ", () => {
     })
 
 
-
-
-    it('should play  the first column in the next row ', () => {
-
-        let boardstring = "x+x+oo+++";
-        let board = populateBoard(boardstring);
-        let expecdtedResult = [['x', '+', 'x'], ['o', 'o', 'o'], ['+', '+', '+']];
-
-
-        const callback = (status, result) => {
-            console.log(result);
-            expect(status).toEqual(true);
-            expect(result).toEqual(expecdtedResult);
-        }
-
-        placeHorizontalWin(board, callback);
-    })
-
-
-
+/*
     it('should not make any playing since there are no two records in the same row ', () => {
 
         let boardstring = "o+x+xo+++";
@@ -422,8 +422,10 @@ describe("Testinng a possible win where there 2 oo in a column ", () => {
             expect(result).toEqual(expecdtedResult);
         }
 
-        placeHorizontalWin(board, callback);
+        placeVerticalWin(board, callback);
     })
+
+    */
 
 
 

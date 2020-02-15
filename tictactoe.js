@@ -331,13 +331,16 @@ const placeHorizontalWin = (board, callback) => {
 
 const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
 
+     
     let move_o = 0;
     let move_x = 0;
+    let boardrow = 0;
 
 
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
 
+        
         if (boardrow[columnIndex] == player1) {
             move_o++;
         }
@@ -365,11 +368,17 @@ const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
         }
     }
 
-    if (columnIndex < board.length - 1) {
-        columnIndex = columnIndex + 1;
-        return placeVerticalWin(board, columnIndex, unmatched,callback);
+    // console.log(board.length);
+    if (columnIndex < 3 ) {
+         
+        
+        columnIndex ++;
+        
+        return placeVerticalWin(board, columnIndex, 0,callback);
 
     }
+
+    console.log("DDDD");
 
     return callback(false, board);
 
@@ -445,7 +454,7 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "ox+ox+++x";
+let movesstring = "+o+xo+++x";
 
 
 
