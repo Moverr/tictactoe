@@ -382,7 +382,7 @@ const placeVerticalWin = (board, columnIndex, unmatched, callback) => {
 
 const playLeftRigtDiagonalWin = (board, callback) => {
 
-     
+
     let unmatched = 0;
     let move_o = 0;
     let move_x = 0;
@@ -404,10 +404,10 @@ const playLeftRigtDiagonalWin = (board, callback) => {
     }
 
 
-    
+
 
     if (move_o == 2 && move_x == 0 && unmatched == 1) {
- 
+
         for (let i = 0; i < board.length; i++) {
             boardrow = board[i];
 
@@ -423,8 +423,8 @@ const playLeftRigtDiagonalWin = (board, callback) => {
 
     }
 
-        return callback(false, board);
-           
+    return callback(false, board);
+
 
 
 }
@@ -432,7 +432,7 @@ const playLeftRigtDiagonalWin = (board, callback) => {
 
 
 
-const playRightLeftDiagonalWin = (board,callback) => {
+const playRightLeftDiagonalWin = (board, callback) => {
 
     let unmatched = 0;
     let move_o = 0;
@@ -459,14 +459,14 @@ const playRightLeftDiagonalWin = (board,callback) => {
 
     }
 
- 
 
-    
-    
-    
+
+
+
+
     if (move_o == 2 && move_x == 0 && unmatched == 1) {
         boardIndex = board.length - 1;
-    
+
         for (let i = 0; i < board.length; i++) {
             boardrow = board[boardIndex];
 
@@ -485,8 +485,8 @@ const playRightLeftDiagonalWin = (board,callback) => {
 
     }
 
-        return callback(false, board);
-           
+    return callback(false, board);
+
 
 
 
@@ -534,18 +534,18 @@ const playGame = (boardstring) => {
     */
 
 
-  /*  playLeftRigtDiagonalWin(board, (status, result) => {
-        //todo: return back to the status of the move 
-        console.log(result);
-
-        if (status == true) {
-            board = result;
-            return board;
-        }
-    })
-
-
-*/
+    /*  playLeftRigtDiagonalWin(board, (status, result) => {
+          //todo: return back to the status of the move 
+          console.log(result);
+  
+          if (status == true) {
+              board = result;
+              return board;
+          }
+      })
+  
+  
+  */
 
 
     // console.log(board);
@@ -596,7 +596,7 @@ module.exports = {
     , validateBoardString
     , placeHorizontalWin
     , placeVerticalWin
-    ,playLeftRigtDiagonalWin
+    , playLeftRigtDiagonalWin
 }
 
 // let result  = intiboard();
