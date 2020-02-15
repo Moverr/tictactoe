@@ -315,11 +315,7 @@ const placeHorizontalWin = (board,callback) => {
             for (let j = 0; j < boardrow.length; j++) {
                 if (boardrow[j] == initsymbol) {                     
                     boardrow[j] = player1;
-                  result =   {
-                        status:true,
-                        board:board
-                    };
-                    
+                     
                     return callback(true, board);
                 }
             }
@@ -330,6 +326,52 @@ const placeHorizontalWin = (board,callback) => {
     return callback(false, board); 
         
 }
+
+
+
+const placeVerticalWin = (board, columnIndex, unmatched) => {
+
+    let move_o = 0;
+    let move_x = 0;
+    
+
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+
+        if (boardrow[columnIndex] == player1) {
+            move_o++;
+        }
+
+        else if (boardrow[columnIndex] == player2) {
+            move_x++;
+        } else if (boardrow[columnIndex] == initsymbol) {
+            unmatched++;
+        } else {
+
+        }
+
+    }
+
+    columnIndex = columnIndex + 1;
+    return rotateThroughBoardColumns(board, columnIndex, unmatched);
+
+}
+
+
+
+const findVerticalMatch = (board) => {
+    if (!Array.isArray(board)) {
+        return null;
+    }
+    let columnIndex = 0;
+    let unmatched = 0;
+    let result = rotateThroughBoardColumns(board, columnIndex, unmatched);
+    console.log(result);
+    return result;
+}
+
+
+
 
 
 
@@ -344,7 +386,7 @@ const playGame = (boardstring) => {
 
     //todo: Win if a player [computer] has two in a row, they can place the third to win. 
     //decide when to know a win in a horizontal flow 
-    
+    //todo:  add the third item to win 
     placeHorizontalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         console.log(result);
@@ -353,7 +395,8 @@ const playGame = (boardstring) => {
             board = result;
             return board;
         }
-    })  
+    })   
+    //todo: block the opponent if they have two in a row  : 
 
      
 
