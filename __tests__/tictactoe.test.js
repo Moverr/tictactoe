@@ -307,7 +307,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 describe("Testinng a possible win where there 2 oo in a row ", () => {
 
 
-    it('should play the next in line row to win the game', () => {
+    it('should play a the middle character on the first row grid ', () => {
 
         let boardstring = "o+ox++x+x";
         let board =  populateBoard(boardstring);        
@@ -324,25 +324,27 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
     })
 
 
-/*
-    it('should return same original board if there is no matching two oo in a row ', () => {
 
-        let boardstring = "x+xoo++++";
+    
+    it('should play  the first column in the next row ', () => {
+
+        let boardstring = "x+x+oo+++";
         let board =  populateBoard(boardstring);        
         let expecdtedResult = [['x', '+', 'x'], ['o', 'o', 'o'], ['+', '+', '+']];
 
 
         const callback = (status,result)=>{
+            console.log(result);
             expect(status).toEqual(true);
             expect(result).toEqual(expecdtedResult);
         }
 
         placeHorizontalWin(board,callback);
-
     })
-*/
- 
 
+
+
+  
 
 })
 
