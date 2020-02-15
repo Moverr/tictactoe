@@ -344,7 +344,24 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
 
 
 
-  
+    it('should not make any playing since there are no two records in the same row ', () => {
+
+        let boardstring = "o+x+xo+++";
+        let board =  populateBoard(boardstring);        
+        let expecdtedResult = [['o', '+', 'x'], ['x', 'o', '+'], ['+', '+', '+']];
+
+
+        const callback = (status,result)=>{
+            console.log(result);
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeHorizontalWin(board,callback);
+    })
+
+
+ 
 
 })
 
