@@ -18,9 +18,6 @@ const intiboard = () => {
     return board;
 }
 
-
-
-
 const populateBoard = (moves) => {
     if (moves == null) {
         return intiboard();
@@ -716,7 +713,10 @@ const playGame = (boardstring) => {
            board = populateBoard(initial_best_move);
            return board;
     }
-    //2) Check  to see that there are 2 matches so that a best win can be played  
+
+    //2) Check if there is a matching win already 
+
+    //3) Check  to see that there are 2 matches so that a best win can be played  
     {
         //check 1
         placeHorizontalWin(board, (status, result) => {           
