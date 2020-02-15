@@ -534,6 +534,7 @@ module.exports = {
     , validateBoardString
     , placeHorizontalWin
     , placeVerticalWin
+    ,playLeftRigtDiagonalWin
 }
 
 // let result  = intiboard();
