@@ -548,6 +548,19 @@ const playGame = (boardstring) => {
   */
 
 
+
+
+    playRightLeftDiagonalWin(board, (status, result) => {
+        //todo: return back to the status of the move 
+        console.log(result);
+
+        if (status == true) {
+            board = result;
+            return board;
+        }
+    })
+
+
     // console.log(board);
 
 
@@ -574,7 +587,7 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "o+xxo++x+";
+let movesstring = "x+oxo++x+";
 
 
 
@@ -597,6 +610,7 @@ module.exports = {
     , placeHorizontalWin
     , placeVerticalWin
     , playLeftRigtDiagonalWin
+    , playRightLeftDiagonalWin
 }
 
 // let result  = intiboard();
