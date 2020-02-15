@@ -360,8 +360,8 @@ const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
 
         //todo: place  a move o to the unmatched 
         for (let j = 0; j < boardrow.length; j++) {
-            if (boardrow[j] == initsymbol) {
-                boardrow[j] = player1;
+            if (boardrow[columnIndex] == initsymbol) {
+                boardrow[columnIndex] = player1;
 
                 return callback(true, board);
             }
@@ -370,15 +370,9 @@ const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
 
     // console.log(board.length);
     if (columnIndex < 3 ) {
-         
-        
         columnIndex ++;
-        
         return placeVerticalWin(board, columnIndex, 0,callback);
-
     }
-
-    console.log("DDDD");
 
     return callback(false, board);
 
