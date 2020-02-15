@@ -735,8 +735,9 @@ const playGame = (boardstring) => {
         }
 
     }
+    //3) Block if oponent already has two matching 
 
-    //3) Check  to see that there are 2 matches so that a best win can be played  
+    //4) Check  to see that there are 2 matches so that a best win can be played  
     {
         //check 1
         placeHorizontalWin(board, (status, result) => {
