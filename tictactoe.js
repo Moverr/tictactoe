@@ -855,6 +855,7 @@ module.exports = {
     , playRightLeftDiagonalWin
     ,placeHorizontalBlock
     ,placeVerticalBlock
+    ,playLeftRigtDiagonalBlock
 }
 
 // let result  = intiboard();

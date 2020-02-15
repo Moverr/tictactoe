@@ -5,10 +5,11 @@ let {
     validateBoardString
     , placeHorizontalWin
     , placeVerticalWin
-    ,playLeftRigtDiagonalWin
-    ,playRightLeftDiagonalWin
-    ,placeHorizontalBlock
-    ,placeVerticalBlock
+    , playLeftRigtDiagonalWin
+    , playRightLeftDiagonalWin
+    , placeHorizontalBlock
+    , placeVerticalBlock
+    , playLeftRigtDiagonalBlock
 } = require('../tictactoe');
 
 
@@ -425,7 +426,7 @@ describe.skip("Testinng a possible win where there 2 oo in a column ", () => {
 
         placeVerticalWin(board, 0, 0, callback);
     })
- 
+
 
 })
 
@@ -454,7 +455,7 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal left to righ
     })
 
 
-  
+
 
 
     it('should not make any playing since there are no two records in the same diagnoal  ', () => {
@@ -473,13 +474,13 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal left to righ
         playLeftRigtDiagonalWin(board, callback);
     })
 
-   
+
 })
 
 
 
 
-describe.skip("Testinng a possible win where there 2 oo in diagonal right to left  ", () => {
+describe.skip("Testinng a possible wins where there 2 oo in diagonal right to left  ", () => {
 
 
     it('should play a the middle character on the first column grid ', () => {
@@ -499,7 +500,7 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal right to lef
     })
 
 
-  
+
 
 
     it('should not make any playing since there are no two records in the same diagnoal  ', () => {
@@ -518,11 +519,11 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal right to lef
         playRightLeftDiagonalWin(board, callback);
     })
 
-   
+
 })
 
 
- 
+
 describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 
@@ -530,7 +531,7 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
         let boardstring = "x+oxx+ox+";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [ [ 'x', '+', 'o' ], [ 'x', 'x', 'o' ], [ 'o', 'x', '+' ] ];
+        let expecdtedResult = [['x', '+', 'o'], ['x', 'x', 'o'], ['o', 'x', '+']];
 
 
         const callback = (status, result) => {
@@ -544,7 +545,7 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 
 
- 
+
 
 
     it('should not make any playing since there are no two records in the same row ', () => {
@@ -573,7 +574,7 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 
 
-describe("Testinng a possible block where there 2 xx in a column ", () => {
+describe.skip("Testinng a possible block where there 2 xx in a column ", () => {
 
 
     it('should play a the middle character on the first column grid ', () => {
@@ -592,7 +593,7 @@ describe("Testinng a possible block where there 2 xx in a column ", () => {
         placeVerticalBlock(board, 0, 0, callback);
     })
 
-  
+
 
     it('should not make any playing since there are no two records in the same row ', () => {
 
@@ -609,9 +610,55 @@ describe("Testinng a possible block where there 2 xx in a column ", () => {
 
         placeVerticalBlock(board, 0, 0, callback);
     })
- 
+
 
 })
+
+
+
+describe("Testinng a possible block where there 2 oo in diagonal left to right  ", () => {
+
+
+    it('should play a the middle character on the first column grid ', () => {
+
+        let boardstring = "x+o+x++++";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['x', '+', 'o'], ['+', 'x', '+'], ['+', '+', 'o']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        playLeftRigtDiagonalBlock(board, callback);
+    })
+
+
+
+
+ 
+    it('should not make any playing since there are no two records in the same diagnoal  ', () => {
+
+        let boardstring = "o+x+xo+++";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(false);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        playLeftRigtDiagonalBlock(board, callback);
+    })
+     
+
+})
+
+
 
 
 
