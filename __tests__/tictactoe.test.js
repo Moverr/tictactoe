@@ -308,7 +308,7 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
 
     it('should play the next in line row to win the game', () => {
 
-        let board = "oo+x++x+x";
+        let board = "o+ox++x+x";
         let expecdtedResult = [['o', 'o', 'o'], ['x', '+', '+'], ['x', '+', 'x']];
 
         placeHorizontalWin(board, (status, result) => {
