@@ -315,37 +315,33 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
 
 
         const callback = (status,result)=>{
+            console.log(result);
             expect(status).toEqual(true);
             expect(result).toEqual(expecdtedResult);
         }
 
-        placeHorizontalWin(board,callback)
+        placeHorizontalWin(board,callback);
     })
 
 
-
+/*
     it('should return same original board if there is no matching two oo in a row ', () => {
 
-        let boardstring = "+++xo+x+x";
-        let board =  placeHorizontalWin(boardstring);
+        let boardstring = "x+xoo++++";
+        let board =  populateBoard(boardstring);        
+        let expecdtedResult = [['x', '+', 'x'], ['o', 'o', 'o'], ['+', '+', '+']];
 
-   
-        // let expecdtedResult = [['o', '+', '+'], ['x', '+', '+'], ['x', '+', 'x']];
 
-        // placeHorizontalWin(board, (status, result) => {
-             
-        //     console.log(status);
-        //     if (status == true) {
-        //         expect(result).toEqual(expecdtedResult);
-        //     }
-        // })
+        const callback = (status,result)=>{
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeHorizontalWin(board,callback);
 
     })
-
-
-
-
-
+*/
+ 
 
 
 })

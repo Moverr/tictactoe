@@ -277,7 +277,7 @@ const validateBoardString = (boardString) => {
 
 
 //todo: rule number one 
-const placeHorizontalWin = (board) => {
+const placeHorizontalWin = (board,callback) => {
 
     if (!Array.isArray(board)) {
         return null;
@@ -288,8 +288,7 @@ const placeHorizontalWin = (board) => {
     //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
-        console.log(boardrow);
-
+         
         let move_o = 0;
         let move_x = 0;
         let unmatched = 0;
@@ -309,18 +308,12 @@ const placeHorizontalWin = (board) => {
                 unmatched++;
             }
         }
-
-        console.log(move_o);
-        console.log(move_x);
-        console.log(unmatched);
-        
+  
         if (move_o == 2 && move_x == 0 && unmatched == 1) {
 
-            console.log("ppppppppp");
-            //todo: place  a move o to the unmatched 
+             //todo: place  a move o to the unmatched 
             for (let j = 0; j < boardrow.length; j++) {
-                if (boardrow[j] == initsymbol) {
-                    console.log("pass");
+                if (boardrow[j] == initsymbol) {                     
                     boardrow[j] = player1;
                   result =   {
                         status:true,
