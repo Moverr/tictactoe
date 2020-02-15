@@ -708,8 +708,11 @@ const playRightLeftDiagonalBlock = (board, callback) => {
 
 const playGame = (boardstring) => {
     let board = null;
-    if (boardstring == undefined || boardstring == "") {
-         board = intiboard();
+    if (boardstring == undefined || boardstring == "") { 
+         //todo: play the first branch
+         initial_best_move = "++++o++++"; 
+           board = populateBoard(initial_best_move);
+           return board;
     }
 
     //todo:   validate board string 
