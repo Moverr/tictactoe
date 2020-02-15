@@ -549,7 +549,7 @@ const playGame = (boardstring) => {
 
 
 
-
+/*
     playRightLeftDiagonalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         console.log(result);
@@ -559,7 +559,7 @@ const playGame = (boardstring) => {
             return board;
         }
     })
-
+*/
 
     // console.log(board);
 
