@@ -708,12 +708,59 @@ const playRightLeftDiagonalBlock = (board, callback) => {
 
 const playGame = (boardstring) => {
     let board = null;
+
+    // 1) if empty string  or undefined meaning, the computer is playing first 
     if (boardstring == undefined || boardstring == "") { 
          //todo: play the first branch
          initial_best_move = "++++o++++"; 
            board = populateBoard(initial_best_move);
            return board;
     }
+    //2) Check  to see that there are 2 matches so that a best win can be played  
+    {
+        //check 1
+        placeHorizontalWin(board, (status, result) => {           
+            if (status == true) {
+                board = result;
+                return board;
+            }
+
+            // check 2 
+            placeVerticalWin(board,0,0, (status, result) => {                 
+        
+                if (status == true) {
+                    board = result;
+                    return board;
+                }
+
+                //check 3
+                playLeftRigtDiagonalWin(board, (status, result) => {
+                    
+                    if (status == true) {
+                        board = result;
+                        return board;
+                    }
+
+                    //check 4 
+                    playRightLeftDiagonalWin(board, (status, result) => {                         
+                        if (status == true) {
+                            board = result;
+                            return board;
+                        }
+                    })
+
+                })
+
+
+            })
+    
+            
+
+        })
+
+
+    }
+
 
     //todo:   validate board string 
     let boardArray = validateBoardString(boardstring)
@@ -746,6 +793,7 @@ const playGame = (boardstring) => {
         //     return board;
         // }
     })
+
     */
 
 
