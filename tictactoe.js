@@ -432,6 +432,68 @@ const playLeftRigtDiagonalWin = (board, callback) => {
 
 
 
+const playRightLeftDiagonalWin = (board,callback) => {
+
+    let unmatched = 0;
+    let move_o = 0;
+    let move_x = 0;
+    let boardrow = 0;
+
+    let boardIndex = board.length - 1;
+
+    for (let i = 0; i < board.length; i++) {
+
+        boardrow = board[boardIndex];
+
+        if (boardrow[i] == player1) {
+            move_o++;
+        }
+        else if (boardrow[i] == player2) {
+            move_x++;
+        } else if (boardrow[i] == initsymbol) {
+            unmatched++;
+        } else {
+
+        }
+        boardIndex--;
+
+    }
+
+ 
+
+    
+    
+    
+    if (move_o == 2 && move_x == 0 && unmatched == 1) {
+        boardIndex = board.length - 1;
+    
+        for (let i = 0; i < board.length; i++) {
+            boardrow = board[boardIndex];
+
+
+            if (boardrow[i] == initsymbol) {
+                boardrow[i] = player1;
+
+                return callback(true, board);
+
+            }
+
+            boardIndex--;
+
+
+        }
+
+    }
+
+        return callback(false, board);
+           
+
+
+
+}
+
+
+
 
 const playGame = (boardstring) => {
     if (boardstring == undefined) {
@@ -472,7 +534,7 @@ const playGame = (boardstring) => {
     */
 
 
-    playLeftRigtDiagonalWin(board, (status, result) => {
+  /*  playLeftRigtDiagonalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         console.log(result);
 
@@ -483,7 +545,7 @@ const playGame = (boardstring) => {
     })
 
 
-
+*/
 
 
     // console.log(board);
