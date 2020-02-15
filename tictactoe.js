@@ -313,13 +313,8 @@ const placeHorizontalWin = (board, callback) => {
             }
         }
 
-        return callback(false, board);
-
-
-
-    }
-
-
+        return callback(false, board); 
+    } 
 }
 
 
