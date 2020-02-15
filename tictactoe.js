@@ -337,8 +337,9 @@ const playGame = (boardstring) => {
     placeHorizontalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         if (status == true) {
-            return result;
-        }  
+            board = result;
+            return board;
+        }
     })
     // player1 = "o";
 
