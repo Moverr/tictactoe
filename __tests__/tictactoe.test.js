@@ -306,20 +306,39 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 describe("Testinng a possible win where there 2 oo in a row ", () => {
 
+
     it('should play the next in line row to win the game', () => {
 
         let board = "o+ox++x+x";
         let expecdtedResult = [['o', 'o', 'o'], ['x', '+', '+'], ['x', '+', 'x']];
 
+
+        placeHorizontalWin(board, (status, result) => {
+            //todo: return back to the status of the move
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+
+        })
+    })
+
+
+
+    it('should return same original board if there is no matching two oo in a row ', () => {
+
+        let board = "o++xo+x+x";
+        let expecdtedResult = [['o', '+', '+'], ['x', '+', '+'], ['x', '+', 'x']];
+
         placeHorizontalWin(board, (status, result) => {
             //todo: return back to the status of the move 
+
+            console.log(status);
             if (status == true) {
                 expect(result).toEqual(expecdtedResult);
             }
         })
-
-
     })
+
+
 
 
 
