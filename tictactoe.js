@@ -340,7 +340,7 @@ const playGame = (boardstring) => {
 
      
 
-    console.log(board);
+    // console.log(board);
 
 
     // let movesarray = moves.split("");
@@ -370,7 +370,7 @@ let movesstring = "oo+x++x+x";
 
 
 
-playGame(movesstring)
+// playGame(movesstring)
 // console.log(findMatch(movesstring));
 
 // initial_board = intiboard();
