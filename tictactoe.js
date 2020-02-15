@@ -329,7 +329,7 @@ const placeHorizontalWin = (board, callback) => {
 
 
 
-const placeVerticalWin = (board, columnIndex, unmatched) => {
+const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
 
     let move_o = 0;
     let move_x = 0;
@@ -367,28 +367,19 @@ const placeVerticalWin = (board, columnIndex, unmatched) => {
 
     if (columnIndex < board.length - 1) {
         columnIndex = columnIndex + 1;
-        return placeVerticalWin(board, columnIndex, unmatched);
+        return placeVerticalWin(board, columnIndex, unmatched,callback);
 
     }
 
+    return callback(false, board);
+
+    
 
 
 
 }
 
-
-
-const findVerticalMatch = (board) => {
-    if (!Array.isArray(board)) {
-        return null;
-    }
-    let columnIndex = 0;
-    let unmatched = 0;
-    let result = rotateThroughBoardColumns(board, columnIndex, unmatched);
-    console.log(result);
-    return result;
-}
-
+ 
 
 
 
