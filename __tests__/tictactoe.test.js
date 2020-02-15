@@ -309,39 +309,37 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
 
     it('should play the next in line row to win the game', () => {
 
-        let board = "o+ox++x+x";
+        let boardstring = "o+ox++x+x";
+        let board =  placeHorizontalWin(boardstring);        
         let expecdtedResult = [['o', 'o', 'o'], ['x', '+', '+'], ['x', '+', 'x']];
 
-        function callback(status,result){
-            console.log(result);
+
+        const callback = (status,result)=>{
+
         }
 
-        // const callback = (status, result) => {
-        //     expect(status).toEqual(false);
-        //     expect(result).toEqual(expecdtedResult);
-        // }
-
-        placeHorizontalWin(board, callback);
-
-        expect(true).toEqual(false);
+        placeHorizontalWin(board,callback)
     })
 
 
-/*
+
     it('should return same original board if there is no matching two oo in a row ', () => {
 
-        let board = "+++xo+x+x";
+        let boardstring = "+++xo+x+x";
+        let board =  placeHorizontalWin(boardstring);
+
+   
         let expecdtedResult = [['o', '+', '+'], ['x', '+', '+'], ['x', '+', 'x']];
 
         // placeHorizontalWin(board, (status, result) => {
-
+             
         //     console.log(status);
         //     if (status == true) {
         //         expect(result).toEqual(expecdtedResult);
         //     }
         // })
 
-    }) */
+    })
 
 
 

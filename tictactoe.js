@@ -277,7 +277,7 @@ const validateBoardString = (boardString) => {
 
 
 //todo: rule number one 
-const placeHorizontalWin = (board, callback) => {
+const placeHorizontalWin = (board) => {
 
     if (!Array.isArray(board)) {
         return null;
@@ -322,6 +322,11 @@ const placeHorizontalWin = (board, callback) => {
                 if (boardrow[j] == initsymbol) {
                     console.log("pass");
                     boardrow[j] = player1;
+                  result =   {
+                        status:true,
+                        board:board
+                    };
+                    
                     return callback(true, board);
                 }
             }
@@ -346,6 +351,7 @@ const playGame = (boardstring) => {
 
     //todo: Win if a player [computer] has two in a row, they can place the third to win. 
     //decide when to know a win in a horizontal flow 
+    
     placeHorizontalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         console.log(result);
@@ -354,7 +360,7 @@ const playGame = (boardstring) => {
             board = result;
             return board;
         }
-    })
+    })  
 
      
 
@@ -388,7 +394,7 @@ let movesstring = "xx+++++oo";
 
 
 
-playGame(movesstring)
+// playGame(movesstring)
 // console.log(findMatch(movesstring));
 
 // initial_board = intiboard();
