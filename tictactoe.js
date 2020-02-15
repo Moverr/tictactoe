@@ -373,7 +373,7 @@ const placeVerticalWin = (board, columnIndex, unmatched,callback) => {
 
     return callback(false, board);
 
-    
+
 
 
 
@@ -397,7 +397,7 @@ const playGame = (boardstring) => {
     //todo: Win if a player [computer] has two in a row, they can place the third to win. 
     //decide when to know a win in a horizontal flow 
     //todo:  add the third item to win 
-    placeHorizontalWin(board, (status, result) => {
+   /* placeHorizontalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         console.log(result);
 
@@ -405,8 +405,17 @@ const playGame = (boardstring) => {
             board = result;
             return board;
         }
-    })
+    }) */
     //todo: block the opponent if they have two in a row  : 
+    placeVerticalWin(board,0,0, (status, result) => {
+        //todo: return back to the status of the move 
+        console.log(result);
+
+        // if (status == true) {
+        //     board = result;
+        //     return board;
+        // }
+    })
 
 
 
@@ -436,11 +445,11 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "xx+++++oo";
+let movesstring = "ox+ox+++x";
 
 
 
-// playGame(movesstring)
+playGame(movesstring)
 // console.log(findMatch(movesstring));
 
 // initial_board = intiboard();
@@ -457,6 +466,7 @@ module.exports = {
     findRightLeftDiagonalMatch
     , validateBoardString
     , placeHorizontalWin
+    ,placeVerticalWin
 }
 
 // let result  = intiboard();

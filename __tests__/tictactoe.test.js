@@ -2,8 +2,9 @@ let {
     intiboard, populateBoard,
     findHorizontalMatch, findVerticalMatch, findLeftRigtDiagonalMatch,
     findRightLeftDiagonalMatch,
-    validateBoardString,
-    placeHorizontalWin
+    validateBoardString
+    ,placeHorizontalWin
+    ,placeVerticalWin
 } = require('../tictactoe');
 
 
@@ -304,42 +305,42 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
 
-describe("Testinng a possible win where there 2 oo in a row ", () => {
+describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 
     it('should play a the middle character on the first row grid ', () => {
 
         let boardstring = "o+ox++x+x";
-        let board =  populateBoard(boardstring);        
+        let board = populateBoard(boardstring);
         let expecdtedResult = [['o', 'o', 'o'], ['x', '+', '+'], ['x', '+', 'x']];
 
 
-        const callback = (status,result)=>{
+        const callback = (status, result) => {
             console.log(result);
             expect(status).toEqual(true);
             expect(result).toEqual(expecdtedResult);
         }
 
-        placeHorizontalWin(board,callback);
+        placeHorizontalWin(board, callback);
     })
 
 
 
-    
+
     it('should play  the first column in the next row ', () => {
 
         let boardstring = "x+x+oo+++";
-        let board =  populateBoard(boardstring);        
+        let board = populateBoard(boardstring);
         let expecdtedResult = [['x', '+', 'x'], ['o', 'o', 'o'], ['+', '+', '+']];
 
 
-        const callback = (status,result)=>{
+        const callback = (status, result) => {
             console.log(result);
             expect(status).toEqual(true);
             expect(result).toEqual(expecdtedResult);
         }
 
-        placeHorizontalWin(board,callback);
+        placeHorizontalWin(board, callback);
     })
 
 
@@ -347,23 +348,90 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
     it('should not make any playing since there are no two records in the same row ', () => {
 
         let boardstring = "o+x+xo+++";
-        let board =  populateBoard(boardstring);        
+        let board = populateBoard(boardstring);
         let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
 
 
-        const callback = (status,result)=>{
+        const callback = (status, result) => {
             console.log(result);
             expect(status).toEqual(false);
             expect(result).toEqual(expecdtedResult);
         }
 
-        placeHorizontalWin(board,callback);
+        placeHorizontalWin(board, callback);
     })
 
 
- 
+
 
 })
+
+
+
+
+describe("Testinng a possible win where there 2 oo in a column ", () => {
+
+
+    it('should play a the middle character on the first column grid ', () => {
+
+        let boardstring = "o+xo++++x";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['o', '+', 'x'], ['o', '+', '+'], ['+', '+', 'x']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeVerticalWin(board,0,0, callback);
+    })
+
+
+
+
+    it('should play  the first column in the next row ', () => {
+
+        let boardstring = "x+x+oo+++";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['x', '+', 'x'], ['o', 'o', 'o'], ['+', '+', '+']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeHorizontalWin(board, callback);
+    })
+
+
+
+    it('should not make any playing since there are no two records in the same row ', () => {
+
+        let boardstring = "o+x+xo+++";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(false);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeHorizontalWin(board, callback);
+    })
+
+
+
+
+})
+
+
+
 
 
 
