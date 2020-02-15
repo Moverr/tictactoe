@@ -2,7 +2,8 @@ let {
     intiboard, populateBoard,
     findHorizontalMatch, findVerticalMatch, findLeftRigtDiagonalMatch,
     findRightLeftDiagonalMatch,
-    validateBoardString
+    validateBoardString,
+    placeHorizontalWin
 } = require('../tictactoe');
 
 
@@ -305,18 +306,23 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 describe("Testinng a possible win where there 2 oo in a row ", () => {
 
-    let boardString = "oo+x++x+x";
-    let expecdtedResult = boardString.split("");
+    it('should play the next in line row to win the game', () => {
 
-    placeHorizontalWin(board, (status, result) => {
-        //todo: return back to the status of the move 
-        if (status == true) {            
-            expect(result).toEqual(expecdtedResult);
-        }
+        let board = "oo+x++x+x";
+        let expecdtedResult = [['o', 'o', 'o'], ['x', '+', '+'], ['x', '+', 'x']];
+
+        placeHorizontalWin(board, (status, result) => {
+            //todo: return back to the status of the move 
+            if (status == true) {
+                expect(result).toEqual(expecdtedResult);
+            }
+        })
+
+
     })
-    
 
-   
+
+
 
 
 })

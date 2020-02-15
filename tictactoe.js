@@ -342,6 +342,7 @@ const playGame = (boardstring) => {
             return board;
         }
     })
+
      
 
     console.log(board);
@@ -390,6 +391,7 @@ module.exports = {
     findLeftRigtDiagonalMatch,
     findRightLeftDiagonalMatch
     , validateBoardString
+    ,placeHorizontalWin
 }
 
 // let result  = intiboard();
