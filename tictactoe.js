@@ -334,6 +334,7 @@ const playGame = (boardstring) => {
     let board = populateBoard(boardstring);
 
     //todo: Win if a player [computer] has two in a row, they can place the third to win. 
+    //decide when to know a win in a horizontal flow 
     placeHorizontalWin(board, (status, result) => {
         //todo: return back to the status of the move 
         if (status == true) {
@@ -341,7 +342,7 @@ const playGame = (boardstring) => {
             return board;
         }
     })
-    // player1 = "o";
+     
 
     console.log(board);
 
@@ -369,7 +370,7 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "+xxo++o++";
+let movesstring = "xx+o++o+x";
 
 
 

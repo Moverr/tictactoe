@@ -253,7 +253,7 @@ describe.skip("Testing the diagnoal right to left   match functionality ", () =>
 
 
 
-describe("Testing the Horizontal match functionality ", () => {
+describe.skip("Testing the Horizontal match functionality ", () => {
     it('should through an error on null', () => {
         try {
             validateBoardString();
@@ -299,14 +299,19 @@ describe("Testing the Horizontal match functionality ", () => {
     });
 
 
-
-
-
-
-
 })
 
 
+
+describe("Testinng a possible win where there 2 oo in a row ", () => {
+    
+    let boardString = "x++x++x++";
+    let expecdtedResult = boardString.split("");
+    let result =   validateBoardString(boardString);
+    expect(result).toEqual(expecdtedResult); 
+    
+
+})
 
 
 
