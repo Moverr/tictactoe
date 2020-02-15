@@ -283,38 +283,54 @@ const placeHorizontalWin = (board, callback) => {
         return null;
     }
 
-    let unmatched = 0;
+    
     let boardrow = null;
     //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
     for (let i = 0; i < board.length; i++) {
         boardrow = board[i];
+        console.log(boardrow);
+
         let move_o = 0;
         let move_x = 0;
+        let unmatched = 0;
+    
 
         for (let j = 0; j < boardrow.length; j++) {
+
+            
             if (boardrow[j] == player1) {
-                move_o++;
+                                 move_o++;
             }
 
             else if (boardrow[j] == player2) {
                 move_x++;
             } else {
+                 
                 unmatched++;
             }
         }
 
+        console.log(move_o);
+        console.log(move_x);
+        console.log(unmatched);
+        
         if (move_o == 2 && move_x == 0 && unmatched == 1) {
+
+            console.log("ppppppppp");
             //todo: place  a move o to the unmatched 
             for (let j = 0; j < boardrow.length; j++) {
                 if (boardrow[j] == initsymbol) {
+                    console.log("pass");
                     boardrow[j] = player1;
                     return callback(true, board);
                 }
             }
         }
 
-        return callback(false, board); 
+        
     } 
+    return callback(false, board); 
+        
 }
 
 
@@ -332,6 +348,8 @@ const playGame = (boardstring) => {
     //decide when to know a win in a horizontal flow 
     placeHorizontalWin(board, (status, result) => {
         //todo: return back to the status of the move 
+        console.log(result);
+           
         if (status == true) {
             board = result;
             return board;
@@ -366,11 +384,11 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "oo+x++x+x";
+let movesstring = "xx+++++oo";
 
 
 
-// playGame(movesstring)
+playGame(movesstring)
 // console.log(findMatch(movesstring));
 
 // initial_board = intiboard();
