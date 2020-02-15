@@ -784,6 +784,8 @@ const playGame = (boardstring) => {
 
     // console.log(board);
 
+
+    // Blocking the opponent from winning 
     
 
     placeHorizontalBlock(board, (status, result) => {
@@ -796,6 +798,20 @@ const playGame = (boardstring) => {
         }
     })
 
+
+     
+
+
+
+    placeVerticalBlock(board,0,0, (status, result) => {
+        //todo: return back to the status of the move 
+        console.log(result);
+
+        // if (status == true) {
+        //     board = result;
+        //     return board;
+        // }
+    })
 
 
 
@@ -838,6 +854,7 @@ module.exports = {
     , playLeftRigtDiagonalWin
     , playRightLeftDiagonalWin
     ,placeHorizontalBlock
+    ,placeVerticalBlock
 }
 
 // let result  = intiboard();

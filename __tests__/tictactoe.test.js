@@ -8,6 +8,7 @@ let {
     ,playLeftRigtDiagonalWin
     ,playRightLeftDiagonalWin
     ,placeHorizontalBlock
+    ,placeVerticalBlock
 } = require('../tictactoe');
 
 
@@ -522,7 +523,7 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal right to lef
 
 
  
-describe("Testinng a possible win where there 2 oo in a row ", () => {
+describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 
     it('should play a the middle character on the first row grid ', () => {
@@ -564,6 +565,51 @@ describe("Testinng a possible win where there 2 oo in a row ", () => {
 
 
 
+
+})
+
+
+
+
+
+
+describe("Testinng a possible block where there 2 xx in a column ", () => {
+
+
+    it('should play a the middle character on the first column grid ', () => {
+
+        let boardstring = "x+ox++++x";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['x', '+', 'o'], ['x', '+', '+'], ['o', '+', 'x']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(true);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeVerticalBlock(board, 0, 0, callback);
+    })
+
+  
+
+    it('should not make any playing since there are no two records in the same row ', () => {
+
+        let boardstring = "o+x+xo+++";
+        let board = populateBoard(boardstring);
+        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+
+
+        const callback = (status, result) => {
+            console.log(result);
+            expect(status).toEqual(false);
+            expect(result).toEqual(expecdtedResult);
+        }
+
+        placeVerticalBlock(board, 0, 0, callback);
+    })
+ 
 
 })
 
