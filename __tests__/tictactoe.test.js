@@ -421,11 +421,7 @@ describe("Testinng a possible win where there 2 oo in a column ", () => {
 
         placeVerticalWin(board, 0, 0, callback);
     })
-
-
-
-
-
+ 
 
 })
 
