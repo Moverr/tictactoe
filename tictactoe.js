@@ -792,38 +792,51 @@ const playGame = (boardstring) => {
         //check 1
         placeHorizontalWin(board, (status, result) => {
             if (status == true) {
+                resultstatus == status;
                 board = result;
-                return board;
+
             }
+        });
 
-            // check 2 
-            placeVerticalWin(board, 0, 0, (status, result) => {
+        if (resultstatus == true) {
+            return board;
+        }
 
-                if (status == true) {
-                    board = result;
-                    return board;
-                }
+        placeVerticalWin(board, 0, 0, (status, result) => {
+            if (status == true) {
+                resultstatus == status;
+                board = result;
 
-                //check 3
-                playLeftRigtDiagonalWin(board, (status, result) => {
+            }
+        });
 
-                    if (status == true) {
-                        board = result;
-                        return board;
-                    }
+        if (resultstatus == true) {
+            return board;
+        }
 
-                    //check 4 
-                    playRightLeftDiagonalWin(board, (status, result) => {
-                        if (status == true) {
-                            board = result;
-                            return board;
-                        }
-                    })
+        playLeftRigtDiagonalWin(board, (status, result) => {
 
-                })
-            })
+            if (status == true) {
+                resultstatus == status;
+                board = result;
+            }
+        });
 
+        if (resultstatus == true) {
+            return board;
+        }
+
+
+        playRightLeftDiagonalWin(board, (status, result) => {
+            if (status == true) {
+                resultstatus == status;
+                board = result;
+            }
         })
+
+        if (resultstatus == true) {
+            return board;
+        }
 
 
     }
