@@ -801,8 +801,6 @@ const placeVerticalMove = (board, columnIndex, unmatched, callback) => {
 }
 
 
-
-
 const playLeftRigtDiagonalMove = (board, callback) => {
 
 
@@ -998,10 +996,14 @@ const playGame = (boardstring) => {
     // 1) if empty string  or undefined meaning, the computer is playing first 
     if (boardstring == undefined || boardstring == "") {
         //todo: play the first branch
+        
         initial_best_move = "++++o++++";
         board = populateBoard(initial_best_move);
         return board;
     }
+
+
+    validateBoardString(boardstring);
 
     board = populateBoard(boardstring);
 
