@@ -486,13 +486,10 @@ const playRightLeftDiagonalWin = (board, callback) => {
 }
 
 //block the other player from winining
-
-//Look through rows to find if exists 2 matched then add the third one to win  
-
-
-
-// Loook through vertical columns and see if there exists any two players on which to add the other one to win the game
-
+ 
+/*
+    If an opponent has matching two records  Horizontally  from left to right  block it, by adding an o 
+*/
 const placeHorizontalBlock = (board, callback) => {
 
     if (!Array.isArray(board)) {
@@ -544,6 +541,9 @@ const placeHorizontalBlock = (board, callback) => {
 }
 
 
+/*
+    If an opponent has matching two records  vertically from top to bottom accross columns block it, by adding an o 
+*/
 const placeVerticalBlock = (board, columnIndex, unmatched, callback) => {
     let move_o = 0;
     let move_x = 0;
@@ -592,8 +592,9 @@ const placeVerticalBlock = (board, columnIndex, unmatched, callback) => {
 }
 
 
-
-
+/*
+    If an opponent has matching two records from left to right diagonal, block it, by adding an o 
+*/
 const playLeftRigtDiagonalBlock = (board, callback) => {
 
 
@@ -644,8 +645,9 @@ const playLeftRigtDiagonalBlock = (board, callback) => {
 }
 
 
-
-
+/*
+    If an opponent has matching two records from right to left diagonal, block it, by adding an o 
+*/
 const playRightLeftDiagonalBlock = (board, callback) => {
 
     let unmatched = 0;
@@ -700,9 +702,10 @@ const playRightLeftDiagonalBlock = (board, callback) => {
 }
 
 
-//Play Next Move 
-
-const placeHorizontalMove = (board, callback) => {
+/*
+Play  Horizontally from row board start to end 
+*/ 
+const playHorizontalMove = (board, callback) => {
 
     if (!Array.isArray(board)) {
         return null;
@@ -752,8 +755,10 @@ const placeHorizontalMove = (board, callback) => {
 
 }
 
-
-const placeVerticalMove = (board, columnIndex, unmatched, callback) => {
+/*
+Play Vertical  from side to side accross the board through columns
+*/
+const  playVerticalMove = (board, columnIndex, unmatched, callback) => {
     let move_o = 0;
     let move_x = 0;
     let boardrow = 0;
@@ -800,7 +805,9 @@ const placeVerticalMove = (board, columnIndex, unmatched, callback) => {
 
 }
 
-
+/*
+Play Diagnoal RIght to left 
+*/
 const playLeftRigtDiagonalMove = (board, callback) => {
 
 
@@ -846,8 +853,9 @@ const playLeftRigtDiagonalMove = (board, callback) => {
 }
 
 
-
-
+/*
+Play Diagnoal from left to right
+*/
 const playRightLeftDiagonalMove = (board, callback) => {
 
     let unmatched = 0;
@@ -903,7 +911,9 @@ const playRightLeftDiagonalMove = (board, callback) => {
 
 
 
-
+/*
+Simple shuffle function to shuffle an array passed to it 
+*/
 const shuffle = (a) => {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -915,7 +925,11 @@ const shuffle = (a) => {
     return a;
 }
 
-
+/*
+Play Next move, plays the first and second moves on the board if O wasnt the first player. 
+Because there are four  ways selecting where to play. we  used an array shuffle  just to make a more un
+predictable move on the server.
+*/
 const playNextMove = (board) => {
     let playmoves = [1, 2, 3, 4];
     let resultstatus;
@@ -932,7 +946,7 @@ const playNextMove = (board) => {
 
 
             case 1:
-                return placeHorizontalMove(board, (status, result) => {
+                return playHorizontalMove(board, (status, result) => {
                     if (status == true) {
                         resultstatus = status
                         board = result;
@@ -943,7 +957,7 @@ const playNextMove = (board) => {
 
 
             case 2:
-                return placeVerticalMove(board, 0, 0, (status, result) => {
+                return  playVerticalMove(board, 0, 0, (status, result) => {
                     if (status == true) {
                         resultstatus == status;
                         board = result;
@@ -987,7 +1001,11 @@ const playNextMove = (board) => {
 
 }
 
+/*
 
+This is the beginning part of the game, the game is supplied with a   board string from the api 
+
+*/
 const playGame = (boardstring) => {
     let board = null;
     let resultstatus;
