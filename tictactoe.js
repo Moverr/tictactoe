@@ -905,6 +905,101 @@ const playRightLeftDiagonalMove = (board, callback) => {
 
 
 
+
+const shuffle = (a) => {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
+
+const playNextMove = () => {
+    let playmoves = [1, 2, 3, 4];
+    playmoves = shuffle(playmoves);
+
+    for (let x = 0; x < playmoves.length; x++) {
+
+        switch (playmoves[x]) {
+
+
+            case 1:
+                placeHorizontalMove(board, (status, result) => {
+                    if (status == true) {
+                        resultstatus = status
+                        board = result;
+                    }
+                });
+
+                if (resultstatus == true) {
+                    return board;
+                }
+
+                break;
+
+            case 2:
+                placeVerticalMove(board, 0, 0, (status, result) => {
+                    if (status == true) {
+                        resultstatus == status;
+                        board = result;
+
+                    }
+                });
+
+                if (resultstatus == true) {
+                    return board;
+                }
+                break;
+
+            case 3:
+                playLeftRigtDiagonalMove(board, (status, result) => {
+
+                    if (status == true) {
+                        resultstatus == status;
+                        board = result;
+                    }
+                });
+
+                if (resultstatus == true) {
+                    return board;
+                }
+
+
+                break;
+
+            case 4:
+
+                playRightLeftDiagonalMove(board, (status, result) => {
+                    if (status == true) {
+                        resultstatus == status;
+                        board = result;
+                    }
+                })
+
+                if (resultstatus == true) {
+                    return board;
+                }
+
+                break;
+
+            default:
+                break;
+
+
+
+        }
+
+
+
+    }
+
+}
+
+
 const playGame = (boardstring) => {
     let board = null;
     let resultstatus;
@@ -1049,58 +1144,6 @@ const playGame = (boardstring) => {
 
     //play  the next second match 
     let playmoves = [];
-    
-    placeHorizontalMove(board, (status, result) => {
-        if (status == true) {
-            resultstatus = status
-            board = result;
-        }
-    });
-
-    if (resultstatus == true) {
-        return board;
-    }
-
-
-    placeVerticalMove(board, 0, 0, (status, result) => {
-        if (status == true) {
-            resultstatus == status;
-            board = result;
-
-        }
-    });
-
-    if (resultstatus == true) {
-        return board;
-    }
-
-
-    playLeftRigtDiagonalMove(board, (status, result) => {
-
-        if (status == true) {
-            resultstatus == status;
-            board = result;
-        }
-    });
-
-    if (resultstatus == true) {
-        return board;
-    }
-
-
-    playRightLeftDiagonalMove(board, (status, result) => {
-        if (status == true) {
-            resultstatus == status;
-            board = result;
-        }
-    })
-
-    if (resultstatus == true) {
-        return board;
-    }
-
-
-
 
 
 
