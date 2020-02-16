@@ -34,9 +34,9 @@ describe.skip("Testing the Init   Board functionality", () => {
 
 describe.skip("Testing  the populate Board functionality", () => {
 
-    let movesstring = "+xxo++o++";
+    let movesstring = " xxo  o  ";
     let board = populateBoard(movesstring);
-    let expectedResult = [['+', 'x', 'x'], ['o', '+', '+'], ['o', '+', '+']];
+    let expectedResult = [[' ', 'x', 'x'], ['o', ' ', ' '], ['o', ' ', ' ']];
 
 
     it("Should find out if board is an array ", () => {
@@ -66,7 +66,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
     let expectedResult = null;
 
     it("Find the best player in horizontal match", () => {
-        movesstring = "xxxo++oo+";
+        movesstring = "xxxo  oo ";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
         expectedResult = player2;
@@ -76,7 +76,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
     it("Find the best player from the second row in horizontal match ", () => {
-        movesstring = "x++oooxx+";
+        movesstring = "x  oooxx ";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
         expectedResult = player1;
@@ -86,10 +86,10 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
     it("Test A scenario where the board is not filled completely and yet no decision yet in horizontal match ", () => {
-        movesstring = "x++xooxo+";
+        movesstring = "x  xooxo ";
         board = populateBoard(movesstring);
         bestPlayer = findHorizontalMatch(board);
-        expectedResult = [['x', '+', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
+        expectedResult = [['x', ' ', ' '], ['x', 'o', 'o'], ['x', 'o', ' ']];
 
         expect(bestPlayer).toEqual(expectedResult);
     });
@@ -125,7 +125,7 @@ describe.skip("Testing the vertical  match functionality ", () => {
 
 
     it("Find the best player in vertical match", () => {
-        movesstring = "xoox++xo+";
+        movesstring = "xoox  xo ";
         board = populateBoard(movesstring);
         bestPlayer = findVerticalMatch(board);
         expectedResult = player2;
@@ -135,7 +135,7 @@ describe.skip("Testing the vertical  match functionality ", () => {
 
 
     it("Find the best player from the second column in vertical match ", () => {
-        movesstring = "oxo+x+ox+";
+        movesstring = "oxo x ox ";
         board = populateBoard(movesstring);
         bestPlayer = findVerticalMatch(board);
         expectedResult = player2;
@@ -145,10 +145,10 @@ describe.skip("Testing the vertical  match functionality ", () => {
 
 
     it("Test A scenario where the board is not filled completely and yet no decision yet in vertical match ", () => {
-        movesstring = "ox+xooxo+";
+        movesstring = "ox xooxo ";
         board = populateBoard(movesstring);
         bestPlayer = findVerticalMatch(board);
-        expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
+        expectedResult = [['o', 'x', ' '], ['x', 'o', 'o'], ['x', 'o', ' ']];
 
         expect(bestPlayer).toEqual(expectedResult);
     });
@@ -183,7 +183,7 @@ describe.skip("Testing the diagonal left to right   match functionality ", () =>
 
 
     it("Find the best player in vertical match", () => {
-        movesstring = "xoo+x+o+x";
+        movesstring = "xoo x o x";
         board = populateBoard(movesstring);
         bestPlayer = findLeftRigtDiagonalMatch(board);
         expectedResult = player2;
@@ -192,10 +192,10 @@ describe.skip("Testing the diagonal left to right   match functionality ", () =>
 
 
     it("Test A scenario where the board is not filled completely and yet no decision made  ", () => {
-        movesstring = "ox+xooxo+";
+        movesstring = "ox xooxo ";
         board = populateBoard(movesstring);
         bestPlayer = findLeftRigtDiagonalMatch(board);
-        expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
+        expectedResult = [['o', 'x', ' '], ['x', 'o', 'o'], ['x', 'o', ' ']];
 
         expect(bestPlayer).toEqual(expectedResult);
     });
@@ -229,7 +229,7 @@ describe.skip("Testing the diagnoal right to left   match functionality ", () =>
 
 
     it("Find the best player in vertical match", () => {
-        movesstring = "oox+x+x+o";
+        movesstring = "oox x x o";
         board = populateBoard(movesstring);
         bestPlayer = findRightLeftDiagonalMatch(board);
         expectedResult = player2;
@@ -238,10 +238,10 @@ describe.skip("Testing the diagnoal right to left   match functionality ", () =>
 
 
     it("Test A scenario where the board is not filled completely and yet no decision made  ", () => {
-        movesstring = "ox+xooxo+";
+        movesstring = "ox xooxo ";
         board = populateBoard(movesstring);
         bestPlayer = findRightLeftDiagonalMatch(board);
-        expectedResult = [['o', 'x', '+'], ['x', 'o', 'o'], ['x', 'o', '+']];
+        expectedResult = [['o', 'x', ' '], ['x', 'o', 'o'], ['x', 'o', ' ']];
 
         expect(bestPlayer).toEqual(expectedResult);
     });
@@ -276,7 +276,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
     it('should through an error on null', () => {
-        let boardString = "x++o";
+        let boardString = "x  o";
         try {
             validateBoardString(boardString);
         } catch (e) {
@@ -286,7 +286,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
     it('should not contain invalid characters', () => {
-        let boardString = "x++xy+x++";
+        let boardString = "x  xy x  ";
         try {
             validateBoardString(boardString);
         } catch (e) {
@@ -299,7 +299,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
     it('should return a valid array ', () => {
-        let boardString = "x++x++x++";
+        let boardString = "x  x  x  ";
         let expecdtedResult = boardString.split("");
         let result = validateBoardString(boardString);
         expect(result).toEqual(expecdtedResult);
@@ -316,9 +316,9 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
     it('should play a the middle character on the first row grid ', () => {
 
-        let boardstring = "o+ox++x+x";
+        let boardstring = "o ox  x x";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', 'o', 'o'], ['x', '+', '+'], ['x', '+', 'x']];
+        let expecdtedResult = [['o', 'o', 'o'], ['x', ' ', ' '], ['x', ' ', 'x']];
 
 
         const callback = (status, result) => {
@@ -335,9 +335,9 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
     it('should play  the first column in the next row ', () => {
 
-        let boardstring = "x+x+oo+++";
+        let boardstring = "x x oo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['x', '+', 'x'], ['o', 'o', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['x', ' ', 'x'], ['o', 'o', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -353,9 +353,9 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
     it('should not make any playing since there are no two records in the same row ', () => {
 
-        let boardstring = "o+x+xo+++";
+        let boardstring = "o x xo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -380,9 +380,9 @@ describe.skip("Testinng a possible win where there 2 oo in a column ", () => {
 
     it('should play a the middle character on the first column grid ', () => {
 
-        let boardstring = "o+xo++++x";
+        let boardstring = "o xo    x";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['o', '+', '+'], ['o', '+', 'x']];
+        let expecdtedResult = [['o', ' ', 'x'], ['o', ' ', ' '], ['o', ' ', 'x']];
 
 
         const callback = (status, result) => {
@@ -397,9 +397,9 @@ describe.skip("Testinng a possible win where there 2 oo in a column ", () => {
 
     it('should play  the first column in the next column ', () => {
 
-        let boardstring = "+o+xo+++x";
+        let boardstring = " o xo   x";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['+', 'o', '+'], ['x', 'o', '+'], ['+', 'o', 'x']];
+        let expecdtedResult = [[' ', 'o', ' '], ['x', 'o', ' '], [' ', 'o', 'x']];
 
 
         const callback = (status, result) => {
@@ -414,9 +414,9 @@ describe.skip("Testinng a possible win where there 2 oo in a column ", () => {
 
     it('should not make any playing since there are no two records in the same row ', () => {
 
-        let boardstring = "o+x+xo+++";
+        let boardstring = "o x xo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -441,9 +441,9 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal left to righ
 
     it('should play a the middle character on the first column grid ', () => {
 
-        let boardstring = "o+x+o++++";
+        let boardstring = "o x o    ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'o', '+'], ['+', '+', 'o']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'o', ' '], [' ', ' ', 'o']];
 
 
         const callback = (status, result) => {
@@ -461,9 +461,9 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal left to righ
 
     it('should not make any playing since there are no two records in the same diagnoal  ', () => {
 
-        let boardstring = "o+x+xo+++";
+        let boardstring = "o x xo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -486,9 +486,9 @@ describe.skip("Testinng a possible wins where there 2 oo in diagonal right to le
 
     it('should play a the middle character on the first column grid ', () => {
 
-        let boardstring = "x+o+o++++";
+        let boardstring = "x o o    ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['x', '+', 'o'], ['+', 'o', '+'], ['o', '+', '+']];
+        let expecdtedResult = [['x', ' ', 'o'], [' ', 'o', ' '], ['o', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -506,9 +506,9 @@ describe.skip("Testinng a possible wins where there 2 oo in diagonal right to le
 
     it('should not make any playing since there are no two records in the same diagnoal  ', () => {
 
-        let boardstring = "o+x+xo+++";
+        let boardstring = "o x xo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -530,9 +530,9 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
     it('should play a the middle character on the first row grid ', () => {
 
-        let boardstring = "x+oxx+ox+";
+        let boardstring = "x oxx ox ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['x', '+', 'o'], ['x', 'x', 'o'], ['o', 'x', '+']];
+        let expecdtedResult = [['x', ' ', 'o'], ['x', 'x', 'o'], ['o', 'x', ' ']];
 
 
         const callback = (status, result) => {
@@ -551,9 +551,9 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
     it('should not make any playing since there are no two records in the same row ', () => {
 
-        let boardstring = "o+x+xo+++";
+        let boardstring = "o x xo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -580,9 +580,9 @@ describe.skip("Testinng a possible block where there 2 xx in a column ", () => {
 
     it('should play a the middle character on the first column grid ', () => {
 
-        let boardstring = "x+ox++++x";
+        let boardstring = "x ox    x";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['x', '+', 'o'], ['x', '+', '+'], ['o', '+', 'x']];
+        let expecdtedResult = [['x', ' ', 'o'], ['x', ' ', ' '], ['o', ' ', 'x']];
 
 
         const callback = (status, result) => {
@@ -598,9 +598,9 @@ describe.skip("Testinng a possible block where there 2 xx in a column ", () => {
 
     it('should not make any playing since there are no two records in the same row ', () => {
 
-        let boardstring = "o+x+xo+++";
+        let boardstring = "o x xo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -622,9 +622,9 @@ describe.skip("Testinng a possible block where there 2 oo in diagonal left to ri
 
     it('should play a the middle character on the first column grid ', () => {
 
-        let boardstring = "x+o+x++++";
+        let boardstring = "x o x    ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['x', '+', 'o'], ['+', 'x', '+'], ['+', '+', 'o']];
+        let expecdtedResult = [['x', ' ', 'o'], [' ', 'x', ' '], [' ', ' ', 'o']];
 
 
         const callback = (status, result) => {
@@ -642,9 +642,9 @@ describe.skip("Testinng a possible block where there 2 oo in diagonal left to ri
  
     it('should not make any playing since there are no two records in the same diagnoal  ', () => {
 
-        let boardstring = "o+x+xo+++";
+        let boardstring = "o x xo   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -666,9 +666,9 @@ describe("Testinng a possible wins where there 2 oo in diagonal right to left  "
 
     it('should play a the middle character on the first column grid ', () => {
 
-        let boardstring = "o+x+x++++";
+        let boardstring = "o x x    ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['+', 'x', '+'], ['o', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], [' ', 'x', ' '], ['o', ' ', ' ']];
 
 
         const callback = (status, result) => {
@@ -686,9 +686,9 @@ describe("Testinng a possible wins where there 2 oo in diagonal right to left  "
 
     it('should not make any playing since there are no two records in the same diagnoal  ', () => {
 
-        let boardstring = "o+xx+o+++";
+        let boardstring = "o xx o   ";
         let board = populateBoard(boardstring);
-        let expecdtedResult = [['o', '+', 'x'], ['x', '+', 'o'], ['+', '+', '+']];
+        let expecdtedResult = [['o', ' ', 'x'], ['x', ' ', 'o'], [' ', ' ', ' ']];
 
 
         const callback = (status, result) => {

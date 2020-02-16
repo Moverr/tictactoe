@@ -1,7 +1,7 @@
 
 const player1 = "o";
 const player2 = "x";
-const initsymbol = "+";
+const initsymbol = " ";
 const draw = 0;
 
 const intiboard = () => {
@@ -141,7 +141,7 @@ const findVerticalMatch = (board) => {
     let columnIndex = 0;
     let unmatched = 0;
     let result = rotateThroughBoardColumns(board, columnIndex, unmatched);
-    // console.log(result);
+     
     return result;
 }
 
@@ -1146,9 +1146,11 @@ const playGame = (boardstring) => {
 
 const initGame=(boardstring)=>{
     let result = playGame(boardstring);
-    console.log(result);
-    console.log(populateResponse(result))
+    // console.log(result);
+    // console.log(populateResponse(result))
 
+let response = populateResponse(result)
+    return response;
 
 }
 
@@ -1182,15 +1184,12 @@ const populateResponse = (board) => {
         }
  
     }
-    result = result+"."
+    result = result+""
     return result;
 }
 
 
-let movesstring = "xxoxo+++";
-initGame(movesstring);
-
-
+ 
 
 module.exports = {
     intiboard,
@@ -1208,6 +1207,7 @@ module.exports = {
     , placeVerticalBlock
     , playLeftRigtDiagonalBlock
     , playRightLeftDiagonalBlock
+    ,initGame
 }
 
 // let result  = intiboard();
