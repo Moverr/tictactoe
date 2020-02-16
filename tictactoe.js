@@ -1144,37 +1144,45 @@ const playGame = (boardstring) => {
 }
 
 
-const initGame(boardstring){
-    let result = playGame(movesstring);
-    console.log(playGame(movesstring))
+const initGame=(boardstring)=>{
+    let result = playGame(boardstring);
+    console.log(result);
+    console.log(populateResponse(result))
 
 
 }
 
 const populateResponse = (board) => {
+    console.log(board);
     let result = "";
     if (Array.isArray(board) == true) {
-        let unmatched = 0;
-        let move_o = 0;
-        let move_x = 0;
+         
         let boardrow = 0;
 
         for (let i = 0; i < board.length; i++) {
             boardrow = board[i];
 
-            if (boardrow[i] == player1) {
-                result += player1;
+            console.log(boardrow);
+            for(let j = 0; j < boardrow.length; j ++ ){
+
+                if (boardrow[j] == player1) {
+                    result =  result+""+player1;
+                }
+                else if (boardrow[j] == player2) {
+                    result += player2;
+                } else if (boardrow[j] == initsymbol) {
+                    result += " ";
+                } else {
+                     continue;
+                }
+            
+                
             }
-            else if (boardrow[i] == player2) {
-                result += player2;
-            } else if (boardrow[i] == initsymbol) {
-                result += initsymbol;
-            } else {
-                continue;
-            }
+            
         }
  
     }
+    result = result+"."
     return result;
 }
 
