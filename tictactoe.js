@@ -1006,7 +1006,7 @@ const playGame = (boardstring) => {
     board = populateBoard(boardstring);
 
     //2) Check if there is a matching win already 
-    /*{
+    {
         let result = findHorizontalMatch(board);
 
         if (result == board) {
@@ -1026,9 +1026,9 @@ const playGame = (boardstring) => {
             return board;
         }
 
-    }*/
+    }
     //3) Block if oponent already has two matching 
-    /*{
+    {
         
         placeHorizontalBlock(board, (status, result) => {
             if (status == true) {
@@ -1076,9 +1076,9 @@ const playGame = (boardstring) => {
         }
 
 
-    }*/
+    }
     //4) Check  to see that there are 2 matches so that a best win can be played  
-    /* {
+     {
         //check 1
         placeHorizontalWin(board, (status, result) => {
             if (status == true) {
@@ -1129,8 +1129,7 @@ const playGame = (boardstring) => {
         }
 
 
-    }  */
-
+    }  
 
     //play  the next second match 
     {
@@ -1145,15 +1144,24 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "xo+++++++";
+const initGame(boardstring){
+   let result = playGame(movesstring);
+    console.log(playGame(movesstring))
 
 
+}
 
-console.log(playGame(movesstring))
-// console.log(findMatch(movesstring));
+const populateResponse=(board)=>{
+    if(Array.isArray(board) == true){
 
-// initial_board = intiboard();
 
+    }
+    throw new Error(" Invalid Board ");
+}
+
+
+let movesstring = "xxoxo+++";
+initGame(movesstring);
 
 
 
