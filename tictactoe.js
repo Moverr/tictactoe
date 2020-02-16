@@ -700,10 +700,215 @@ const playRightLeftDiagonalBlock = (board, callback) => {
 }
 
 
+//Play Next Move 
+
+const placeHorizontalMove = (board, callback) => {
+
+    if (!Array.isArray(board)) {
+        return null;
+    }
+
+
+    let boardrow = null;
+    //todo: look through the vertical selection to find if there are existing 3 items of same type, x or o 
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+
+        let move_o = 0;
+        let move_x = 0;
+        let unmatched = 0;
+
+
+        for (let j = 0; j < boardrow.length; j++) {
+
+
+            if (boardrow[j] == player1) {
+                move_o++;
+            }
+
+            else if (boardrow[j] == player2) {
+                move_x++;
+            } else {
+
+                unmatched++;
+            }
+        }
+
+        if (move_o >= 0 && unmatched >= 1) {
+
+            //todo: place  a move o to the unmatched 
+            for (let j = 0; j < boardrow.length; j++) {
+                if (boardrow[j] == initsymbol) {
+                    boardrow[j] = player1;
+
+                    return callback(true, board);
+                }
+            }
+        }
+
+
+    }
+    return callback(false, board);
+
+}
+
+
+const placeVerticalMove = (board, columnIndex, unmatched, callback) => {
+    let move_o = 0;
+    let move_x = 0;
+    let boardrow = 0;
+
+
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+
+
+        if (boardrow[columnIndex] == player1) {
+            move_o++;
+        }
+
+        else if (boardrow[columnIndex] == player2) {
+            move_x++;
+        } else if (boardrow[columnIndex] == initsymbol) {
+            unmatched++;
+        } else {
+
+        }
+
+    }
+
+
+    if (move_o >= 0 && unmatched >= 1) {
+
+        //todo: place  a move o to the unmatched 
+        for (let j = 0; j < boardrow.length; j++) {
+            if (boardrow[columnIndex] == initsymbol) {
+                boardrow[columnIndex] = player1;
+
+                return callback(true, board);
+            }
+        }
+    }
+
+    // console.log(board.length);
+    if (columnIndex < 3) {
+        columnIndex++;
+        return placeVerticalWin(board, columnIndex, 0, callback);
+    }
+
+    return callback(false, board);
+
+}
+
+
+
+
+const playLeftRigtDiagonalMove = (board, callback) => {
+
+
+    let unmatched = 0;
+    let move_o = 0;
+    let move_x = 0;
+    let boardrow = 0;
+
+    for (let i = 0; i < board.length; i++) {
+        boardrow = board[i];
+
+        if (boardrow[i] == player1) {
+            move_o++;
+        }
+        else if (boardrow[i] == player2) {
+            move_x++;
+        } else if (boardrow[i] == initsymbol) {
+            unmatched++;
+        } else {
+
+        }
+    }
+
+
+    if (move_o >= 0 && unmatched >= 1) {
+
+        for (let i = 0; i < board.length; i++) {
+            boardrow = board[i];
+            if (boardrow[i] == initsymbol) {
+                boardrow[i] = player1;
+                return callback(true, board);
+
+            }
+
+        }
+
+    }
+
+    return callback(false, board);
+
+
+
+}
+
+
+
+
+const playRightLeftDiagonalMove = (board, callback) => {
+
+    let unmatched = 0;
+    let move_o = 0;
+    let move_x = 0;
+    let boardrow = 0;
+
+    let boardIndex = board.length - 1;
+
+    for (let i = 0; i < board.length; i++) {
+
+        boardrow = board[boardIndex];
+
+        if (boardrow[i] == player1) {
+            move_o++;
+        }
+        else if (boardrow[i] == player2) {
+            move_x++;
+        } else if (boardrow[i] == initsymbol) {
+            unmatched++;
+        } else {
+
+        }
+        boardIndex--;
+
+    }
+
+
+    if (move_o >= 0 && unmatched >= 1) {
+        boardIndex = board.length - 1;
+
+        for (let i = 0; i < board.length; i++) {
+            boardrow = board[boardIndex];
+
+
+            if (boardrow[i] == initsymbol) {
+                boardrow[i] = player1;
+
+                return callback(true, board);
+
+            }
+
+            boardIndex--;
+
+
+        }
+
+    }
+
+    return callback(false, board);
+
+}
+
 
 
 const playGame = (boardstring) => {
     let board = null;
+    let resultstatus;
+
 
     // 1) if empty string  or undefined meaning, the computer is playing first 
     if (boardstring == undefined || boardstring == "") {
@@ -716,7 +921,7 @@ const playGame = (boardstring) => {
     board = populateBoard(boardstring);
 
     //2) Check if there is a matching win already 
-    {
+    /*{
         let result = findHorizontalMatch(board);
 
         if (result == board) {
@@ -736,10 +941,10 @@ const playGame = (boardstring) => {
             return board;
         }
 
-    }
+    }*/
     //3) Block if oponent already has two matching 
-    {
-        let resultstatus;
+    /*{
+        
         placeHorizontalBlock(board, (status, result) => {
             if (status == true) {
                 resultstatus = status
@@ -786,9 +991,9 @@ const playGame = (boardstring) => {
         }
 
 
-    }
+    }*/
     //4) Check  to see that there are 2 matches so that a best win can be played  
-    {
+    /* {
         //check 1
         placeHorizontalWin(board, (status, result) => {
             if (status == true) {
@@ -839,7 +1044,64 @@ const playGame = (boardstring) => {
         }
 
 
+    }  */
+
+
+    //play  the next second match 
+    let playmoves = [];
+    
+    placeHorizontalMove(board, (status, result) => {
+        if (status == true) {
+            resultstatus = status
+            board = result;
+        }
+    });
+
+    if (resultstatus == true) {
+        return board;
     }
+
+
+    placeVerticalMove(board, 0, 0, (status, result) => {
+        if (status == true) {
+            resultstatus == status;
+            board = result;
+
+        }
+    });
+
+    if (resultstatus == true) {
+        return board;
+    }
+
+
+    playLeftRigtDiagonalMove(board, (status, result) => {
+
+        if (status == true) {
+            resultstatus == status;
+            board = result;
+        }
+    });
+
+    if (resultstatus == true) {
+        return board;
+    }
+
+
+    playRightLeftDiagonalMove(board, (status, result) => {
+        if (status == true) {
+            resultstatus == status;
+            board = result;
+        }
+    })
+
+    if (resultstatus == true) {
+        return board;
+    }
+
+
+
+
 
 
 
@@ -849,7 +1111,7 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "x+oxx+ox+";
+let movesstring = "x++++++++";
 
 
 
