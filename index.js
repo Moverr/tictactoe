@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
 
     try {
-
         console.log(req.query);
         let boardstring = req.query['board'];
         console.log(boardstring);
