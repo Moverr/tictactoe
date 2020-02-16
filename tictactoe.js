@@ -4,6 +4,7 @@ const player2 = "x";
 const initsymbol = " ";
 const draw = 0;
 
+// initialize  3 x 3 grid board 
 const intiboard = () => {
     let board = [];
 
@@ -18,6 +19,7 @@ const intiboard = () => {
     return board;
 }
 
+//populate a board 
 const populateBoard = (moves) => {
     if (moves == null) {
         return intiboard();
@@ -45,6 +47,7 @@ const populateBoard = (moves) => {
 
 }
 
+// find any  records horizontal to find a possible win 
 const findHorizontalMatch = (board) => {
 
     if (!Array.isArray(board)) {
@@ -133,7 +136,7 @@ const rotateThroughBoardColumns = (board, columnIndex, unmatched) => {
     }
 }
 
-
+//find any matched rercords vertically 
 const findVerticalMatch = (board) => {
     if (!Array.isArray(board)) {
         return null;
@@ -146,7 +149,7 @@ const findVerticalMatch = (board) => {
 }
 
 
-
+//find any unmatched columns 
 const findifExistsUnmatched = (board) => {
     let boardrow = 0;
     for (let i = 0; i < board.length; i++) {
@@ -161,6 +164,7 @@ const findifExistsUnmatched = (board) => {
 }
 
 
+//find possible win from left to right diagnal 
 const findLeftRigtDiagonalMatch = (board) => {
 
     let unmatched = 0;
@@ -199,7 +203,7 @@ const findLeftRigtDiagonalMatch = (board) => {
     }
 
 }
-
+//find possible win  from right to left diagnoal
 const findRightLeftDiagonalMatch = (board) => {
 
     let unmatched = 0;
@@ -246,6 +250,7 @@ const findRightLeftDiagonalMatch = (board) => {
 
 }
 
+//validate String 
 const validateBoardString = (boardString) => {
     if (boardString === null || boardString === undefined) {
         throw new Error("Invalid Boad String");
@@ -376,6 +381,7 @@ const placeVerticalWin = (board, columnIndex, unmatched, callback) => {
 
 
 
+//If You have  two items in line diagonal left to right, place the other  to win the game
 const playLeftRigtDiagonalWin = (board, callback) => {
 
 
@@ -427,7 +433,7 @@ const playLeftRigtDiagonalWin = (board, callback) => {
 
 
 
-
+//If You have  two items in line diagonal right to left, place the other  to win the game
 const playRightLeftDiagonalWin = (board, callback) => {
 
     let unmatched = 0;
