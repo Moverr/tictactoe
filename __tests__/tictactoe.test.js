@@ -14,7 +14,7 @@ let {
 } = require('../tictactoe');
 
 
-describe.skip("Testing the Init   Board functionality", () => {
+describe("Testing the Init   Board functionality", () => {
     let board = intiboard();
 
     it("Should find out if board is an array ", () => {
@@ -32,7 +32,7 @@ describe.skip("Testing the Init   Board functionality", () => {
 });
 
 
-describe.skip("Testing  the populate Board functionality", () => {
+describe("Testing  the populate Board functionality", () => {
 
     let movesstring = " xxo  o  ";
     let board = populateBoard(movesstring);
@@ -53,7 +53,7 @@ describe.skip("Testing  the populate Board functionality", () => {
 
 
 
-describe.skip("Testing the Horizontal match functionality ", () => {
+describe("Testing the Horizontal match functionality ", () => {
 
 
     let player1 = "o";
@@ -112,7 +112,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
 
-describe.skip("Testing the vertical  match functionality ", () => {
+describe("Testing the vertical  match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -170,7 +170,7 @@ describe.skip("Testing the vertical  match functionality ", () => {
 
 
 
-describe.skip("Testing the diagonal left to right   match functionality ", () => {
+describe("Testing the diagonal left to right   match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -216,7 +216,7 @@ describe.skip("Testing the diagonal left to right   match functionality ", () =>
 
 
 
-describe.skip("Testing the diagnoal right to left   match functionality ", () => {
+describe("Testing the diagnoal right to left   match functionality ", () => {
 
     let player1 = "o";
     let player2 = "x";
@@ -261,7 +261,7 @@ describe.skip("Testing the diagnoal right to left   match functionality ", () =>
 
 
 
-describe.skip("Testing the Horizontal match functionality ", () => {
+describe("Testing the Horizontal match functionality ", () => {
     it('should through an error on null', () => {
         try {
             validateBoardString();
@@ -311,7 +311,7 @@ describe.skip("Testing the Horizontal match functionality ", () => {
 
 
 
-describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
+describe("Testinng a possible win where there 2 oo in a row ", () => {
 
 
     it('should play a the middle character on the first row grid ', () => {
@@ -375,7 +375,7 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 
 
-describe.skip("Testinng a possible win where there 2 oo in a column ", () => {
+describe("Testinng a possible win where there 2 oo in a column ", () => {
 
 
     it('should play a the middle character on the first column grid ', () => {
@@ -436,7 +436,7 @@ describe.skip("Testinng a possible win where there 2 oo in a column ", () => {
 
 
 
-describe.skip("Testinng a possible win where there 2 oo in diagonal left to right  ", () => {
+describe("Testinng a possible win where there 2 oo in diagonal left to right  ", () => {
 
 
     it('should play a the middle character on the first column grid ', () => {
@@ -481,7 +481,7 @@ describe.skip("Testinng a possible win where there 2 oo in diagonal left to righ
 
 
 
-describe.skip("Testinng a possible wins where there 2 oo in diagonal right to left  ", () => {
+describe("Testinng a possible wins where there 2 oo in diagonal right to left  ", () => {
 
 
     it('should play a the middle character on the first column grid ', () => {
@@ -525,7 +525,7 @@ describe.skip("Testinng a possible wins where there 2 oo in diagonal right to le
 
 
 
-describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
+describe("Testinng a possible win where there 2 oo in a row ", () => {
 
 
     it('should play a the middle character on the first row grid ', () => {
@@ -575,7 +575,7 @@ describe.skip("Testinng a possible win where there 2 oo in a row ", () => {
 
 
 
-describe.skip("Testinng a possible block where there 2 xx in a column ", () => {
+describe("Testinng a possible block where there 2 xx in a column ", () => {
 
 
     it('should play a the middle character on the first column grid ', () => {
@@ -617,7 +617,7 @@ describe.skip("Testinng a possible block where there 2 xx in a column ", () => {
 
 
 
-describe.skip("Testinng a possible block where there 2 oo in diagonal left to right  ", () => {
+describe("Testinng a possible block where there 2 oo in diagonal left to right  ", () => {
 
 
     it('should play a the middle character on the first column grid ', () => {
