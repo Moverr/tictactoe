@@ -1145,7 +1145,7 @@ const playGame = (boardstring) => {
 }
 
 
-let movesstring = "x++++++++";
+let movesstring = "xo+++++++";
 
 
 
