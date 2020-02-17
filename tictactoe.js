@@ -1025,11 +1025,12 @@ const playGame = (boardstring) => {
         board = populateBoard(initial_best_move);
         return board;
     }
-
-
     validateBoardString(boardstring);
 
     board = populateBoard(boardstring);
+
+
+
 
     //2) Check if there is a matching win already 
     {
@@ -1053,9 +1054,12 @@ const playGame = (boardstring) => {
         }
 
     }
+
+
+
     //3)  Check  to see that there are 2 matches so that a best win can be played 
 
-    {
+    
         //check 1
         placeHorizontalWin(board, (status, result) => {
             if (status == true) {
@@ -1095,7 +1099,13 @@ const playGame = (boardstring) => {
 
 
 
-    }
+        if(board != populateBoard(boardstring)){
+            return board;
+        }
+    
+
+    
+
 
     //4)  Block if oponent already has two matching 
 
@@ -1120,7 +1130,6 @@ const playGame = (boardstring) => {
 
 
         playLeftRigtDiagonalBlock(board, (status, result) => {
-
             if (status == true) {
                 resultstatus = status
                 return result;
@@ -1139,13 +1148,22 @@ const playGame = (boardstring) => {
 
     }
 
+    if(board != populateBoard(boardstring)){
+        return board;
+    }
+
+
+
     //play  the next second match 
     {
         if (resultstatus == false)
             playNextMove(board);
     }
 
-
+    if(board != populateBoard(boardstring)){
+            return board;
+        }
+    
 
     return board;
 
@@ -1155,16 +1173,14 @@ const playGame = (boardstring) => {
 
 const initGame = (boardstring) => {
     let result = playGame(boardstring);
-    // console.log(result);
-    // console.log(populateResponse(result))
-
+   
     let response = populateResponse(result)
     return response;
 
 }
 
 const populateResponse = (board) => {
-    console.log(board);
+    
     let result = "";
     if (Array.isArray(board) == true) {
 
@@ -1193,7 +1209,6 @@ const populateResponse = (board) => {
         }
 
     }
-    result = result + ""
     return result;
 }
 
