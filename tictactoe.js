@@ -144,7 +144,7 @@ const findVerticalMatch = (board) => {
     let columnIndex = 0;
     let unmatched = 0;
     let result = rotateThroughBoardColumns(board, columnIndex, unmatched);
-     
+
     return result;
 }
 
@@ -492,7 +492,7 @@ const playRightLeftDiagonalWin = (board, callback) => {
 }
 
 //block the other player from winining
- 
+
 /*
     If an opponent has matching two records  Horizontally  from left to right  block it, by adding an o 
 */
@@ -710,7 +710,7 @@ const playRightLeftDiagonalBlock = (board, callback) => {
 
 /*
 Play  Horizontally from row board start to end 
-*/ 
+*/
 const playHorizontalMove = (board, callback) => {
 
     if (!Array.isArray(board)) {
@@ -764,7 +764,7 @@ const playHorizontalMove = (board, callback) => {
 /*
 Play Vertical  from side to side accross the board through columns
 */
-const  playVerticalMove = (board, columnIndex, unmatched, callback) => {
+const playVerticalMove = (board, columnIndex, unmatched, callback) => {
     let move_o = 0;
     let move_x = 0;
     let boardrow = 0;
@@ -963,7 +963,7 @@ const playNextMove = (board) => {
 
 
             case 2:
-                return  playVerticalMove(board, 0, 0, (status, result) => {
+                return playVerticalMove(board, 0, 0, (status, result) => {
                     if (status == true) {
                         resultstatus == status;
                         board = result;
@@ -1014,13 +1014,13 @@ This is the beginning part of the game, the game is supplied with a   board stri
 */
 const playGame = (boardstring) => {
     let board = null;
-    let resultstatus;
+    let resultstatus = false;
 
 
     // 1) if empty string  or undefined meaning, the computer is playing first 
     if (boardstring == undefined || boardstring == "") {
         //todo: play the first branch
-        
+
         initial_best_move = "++++o++++";
         board = populateBoard(initial_best_move);
         return board;
@@ -1054,7 +1054,7 @@ const playGame = (boardstring) => {
 
     }
     //3)  Check  to see that there are 2 matches so that a best win can be played 
-    
+
     {
         //check 1
         placeHorizontalWin(board, (status, result) => {
@@ -1065,7 +1065,7 @@ const playGame = (boardstring) => {
             }
         });
 
- 
+
         placeVerticalWin(board, 0, 0, (status, result) => {
             if (status == true) {
                 resultstatus == status;
@@ -1074,7 +1074,7 @@ const playGame = (boardstring) => {
             }
         });
 
- 
+
         playLeftRigtDiagonalWin(board, (status, result) => {
 
             if (status == true) {
@@ -1083,75 +1083,66 @@ const playGame = (boardstring) => {
             }
         });
 
-         
+
 
 
         playRightLeftDiagonalWin(board, (status, result) => {
             if (status == true) {
                 resultstatus == status;
-                 return result;
+                return result;
             }
         })
 
- 
+
 
     }
 
     //4)  Block if oponent already has two matching 
-   
+
     {
 
         placeHorizontalBlock(board, (status, result) => {
             if (status == true) {
                 resultstatus = status
-                board = result;
+                return result;
             }
         });
 
-        if (resultstatus == true) {
-            return board;
-        }
+
 
         placeVerticalBlock(board, 0, 0, (status, result) => {
             if (status == true) {
                 resultstatus = status
-                board = result;
+                return result;
             }
         });
 
-        if (resultstatus == true) {
-            return board;
-        }
+
 
         playLeftRigtDiagonalBlock(board, (status, result) => {
 
             if (status == true) {
                 resultstatus = status
-                board = result;
+                return result;
             }
         });
 
-        if (resultstatus == true) {
-            return board;
-        }
 
         playRightLeftDiagonalBlock(board, (status, result) => {
             if (status == true) {
                 resultstatus = status
-                board = result;
+                return result;
             }
         });
 
-        if (resultstatus == true) {
-            return board;
-        }
 
 
     }
-   
+
     //play  the next second match 
     {
-        playNextMove(board);
+        if (resultstatus == false)
+            playNextMove(board);
     }
 
 
@@ -1162,12 +1153,12 @@ const playGame = (boardstring) => {
 }
 
 
-const initGame=(boardstring)=>{
+const initGame = (boardstring) => {
     let result = playGame(boardstring);
     // console.log(result);
     // console.log(populateResponse(result))
 
-let response = populateResponse(result)
+    let response = populateResponse(result)
     return response;
 
 }
@@ -1176,38 +1167,38 @@ const populateResponse = (board) => {
     console.log(board);
     let result = "";
     if (Array.isArray(board) == true) {
-         
+
         let boardrow = 0;
 
         for (let i = 0; i < board.length; i++) {
             boardrow = board[i];
 
             console.log(boardrow);
-            for(let j = 0; j < boardrow.length; j ++ ){
+            for (let j = 0; j < boardrow.length; j++) {
 
                 if (boardrow[j] == player1) {
-                    result =  result+""+player1;
+                    result = result + "" + player1;
                 }
                 else if (boardrow[j] == player2) {
                     result += player2;
                 } else if (boardrow[j] == initsymbol) {
                     result += " ";
                 } else {
-                     continue;
+                    continue;
                 }
-            
-                
+
+
             }
-            
+
         }
- 
+
     }
-    result = result+""
+    result = result + ""
     return result;
 }
 
 
- 
+
 
 module.exports = {
     intiboard,
@@ -1225,7 +1216,7 @@ module.exports = {
     , placeVerticalBlock
     , playLeftRigtDiagonalBlock
     , playRightLeftDiagonalBlock
-    ,initGame
+    , initGame
 }
 
 // let result  = intiboard();
