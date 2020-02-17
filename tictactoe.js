@@ -1054,6 +1054,14 @@ const playGame = (boardstring) => {
         }
 
     }
+
+    
+    if(resultstatus === true){
+        return board;
+    }
+
+
+
     //3)  Check  to see that there are 2 matches so that a best win can be played 
 
     {
@@ -1067,6 +1075,10 @@ const playGame = (boardstring) => {
         });
 
 
+        if(resultstatus === true){
+            return board;
+        }
+        
         placeVerticalWin(board, 0, 0, (status, result) => {
             if (status === true) {
                 resultstatus = true;
@@ -1075,6 +1087,11 @@ const playGame = (boardstring) => {
             }
         });
 
+        if(resultstatus === true){
+            return board;
+        }
+    
+        
 
         playLeftRigtDiagonalWin(board, (status, result) => {
 
@@ -1084,6 +1101,10 @@ const playGame = (boardstring) => {
             }
         });
 
+        if(resultstatus === true){
+            return board;
+        }
+        
 
 
 
@@ -1098,6 +1119,12 @@ const playGame = (boardstring) => {
 
     }
 
+    
+    if(resultstatus == true){
+        return board;
+    }
+
+
     //4)  Block if oponent already has two matching 
 
     {
@@ -1108,7 +1135,10 @@ const playGame = (boardstring) => {
                 return result;
             }
         });
-
+        if(resultstatus === true){
+            return board;
+        }
+        
 
 
         placeVerticalBlock(board, 0, 0, (status, result) => {
@@ -1119,6 +1149,11 @@ const playGame = (boardstring) => {
         });
 
 
+        if(resultstatus === true){
+            return board;
+        }
+    
+        
 
         playLeftRigtDiagonalBlock(board, (status, result) => {
             if (status === true) {
@@ -1128,6 +1163,11 @@ const playGame = (boardstring) => {
         });
 
 
+        if(resultstatus === true){
+            return board;
+        }
+    
+        
         playRightLeftDiagonalBlock(board, (status, result) => {
             if (status === true) {
                 resultstatus = true
@@ -1138,6 +1178,13 @@ const playGame = (boardstring) => {
 
 
     }
+
+    if(resultstatus == true){
+        return board;
+    }
+
+    
+    console.log(resultstatus);
 
     //play  the next second match 
     {
