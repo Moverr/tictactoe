@@ -1060,51 +1060,40 @@ const playGame = (boardstring) => {
         placeHorizontalWin(board, (status, result) => {
             if (status == true) {
                 resultstatus == status;
-                board = result;
+                return result;
 
             }
         });
 
-        if (resultstatus == true) {
-            return board;
-        }
-
+ 
         placeVerticalWin(board, 0, 0, (status, result) => {
             if (status == true) {
                 resultstatus == status;
-                board = result;
+                return result;
 
             }
         });
 
-        if (resultstatus == true) {
-            return board;
-        }
-
+ 
         playLeftRigtDiagonalWin(board, (status, result) => {
 
             if (status == true) {
                 resultstatus == status;
-                board = result;
+                return result;
             }
         });
 
-        if (resultstatus == true) {
-            return board;
-        }
+         
 
 
         playRightLeftDiagonalWin(board, (status, result) => {
             if (status == true) {
                 resultstatus == status;
-                board = result;
+                 return result;
             }
         })
 
-        if (resultstatus == true) {
-            return board;
-        }
-
+ 
 
     }
 
