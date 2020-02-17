@@ -12,7 +12,8 @@ To acces this API online visit [API Link ](https://nameless-harbor-22465.herokua
 
 - ```Heroku``` - Heroku is a hosting environment 
 
-### Installation on WIndows
+### How to run the application locally
+
 
 First clone this repository
 ```
@@ -32,3 +33,12 @@ Then run the application
  ```
  npm test
  ```
+
+
+ ### How to play with the endpoint 
+ ## Example
+ If I run
+    ```
+    curl YOUR_URL?board=+xxo++o++
+    ```
+I should get the exact string oxxo  o   (that’s o-x-x-o-space-space-o-space-space) as the entire contents of the HTTP response body. If your api returns anything else, our unit tests will fail when run on your code.
