@@ -1029,7 +1029,7 @@ const playGame = (boardstring) => {
 
     board = populateBoard(boardstring);
 
-
+ 
 
 
     //2) Check if there is a matching win already 
@@ -1054,16 +1054,13 @@ const playGame = (boardstring) => {
         }
 
     }
-
-
-
     //3)  Check  to see that there are 2 matches so that a best win can be played 
 
-    
+    {
         //check 1
         placeHorizontalWin(board, (status, result) => {
-            if (status == true) {
-                resultstatus == status;
+            if (status === true) {
+                resultstatus = true;
                 return result;
 
             }
@@ -1071,8 +1068,8 @@ const playGame = (boardstring) => {
 
 
         placeVerticalWin(board, 0, 0, (status, result) => {
-            if (status == true) {
-                resultstatus == status;
+            if (status === true) {
+                resultstatus = true;
                 return result;
 
             }
@@ -1081,8 +1078,8 @@ const playGame = (boardstring) => {
 
         playLeftRigtDiagonalWin(board, (status, result) => {
 
-            if (status == true) {
-                resultstatus == status;
+            if (status === true) {
+                resultstatus = true;
                 return result;
             }
         });
@@ -1091,29 +1088,23 @@ const playGame = (boardstring) => {
 
 
         playRightLeftDiagonalWin(board, (status, result) => {
-            if (status == true) {
-                resultstatus == status;
+            if (status === true) {
+                resultstatus = true;
                 return result;
             }
         })
 
 
 
-        if(board != populateBoard(boardstring)){
-            return board;
-        }
-    
-
-    
-
+    }
 
     //4)  Block if oponent already has two matching 
 
     {
 
         placeHorizontalBlock(board, (status, result) => {
-            if (status == true) {
-                resultstatus = status
+            if (status === true) {
+                resultstatus = true
                 return result;
             }
         });
@@ -1121,8 +1112,8 @@ const playGame = (boardstring) => {
 
 
         placeVerticalBlock(board, 0, 0, (status, result) => {
-            if (status == true) {
-                resultstatus = status
+            if (status === true) {
+                resultstatus = true
                 return result;
             }
         });
@@ -1130,7 +1121,7 @@ const playGame = (boardstring) => {
 
 
         playLeftRigtDiagonalBlock(board, (status, result) => {
-            if (status == true) {
+            if (status === true) {
                 resultstatus = status
                 return result;
             }
@@ -1138,8 +1129,8 @@ const playGame = (boardstring) => {
 
 
         playRightLeftDiagonalBlock(board, (status, result) => {
-            if (status == true) {
-                resultstatus = status
+            if (status === true) {
+                resultstatus = true
                 return result;
             }
         });
@@ -1148,22 +1139,13 @@ const playGame = (boardstring) => {
 
     }
 
-    if(board != populateBoard(boardstring)){
-        return board;
-    }
-
-
-
     //play  the next second match 
     {
         if (resultstatus == false)
             playNextMove(board);
     }
 
-    if(board != populateBoard(boardstring)){
-            return board;
-        }
-    
+
 
     return board;
 
