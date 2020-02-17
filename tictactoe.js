@@ -1053,57 +1053,8 @@ const playGame = (boardstring) => {
         }
 
     }
-    //3) Block if oponent already has two matching 
-    {
-
-        placeHorizontalBlock(board, (status, result) => {
-            if (status == true) {
-                resultstatus = status
-                board = result;
-            }
-        });
-
-        if (resultstatus == true) {
-            return board;
-        }
-
-        placeVerticalBlock(board, 0, 0, (status, result) => {
-            if (status == true) {
-                resultstatus = status
-                board = result;
-            }
-        });
-
-        if (resultstatus == true) {
-            return board;
-        }
-
-        playLeftRigtDiagonalBlock(board, (status, result) => {
-
-            if (status == true) {
-                resultstatus = status
-                board = result;
-            }
-        });
-
-        if (resultstatus == true) {
-            return board;
-        }
-
-        playRightLeftDiagonalBlock(board, (status, result) => {
-            if (status == true) {
-                resultstatus = status
-                board = result;
-            }
-        });
-
-        if (resultstatus == true) {
-            return board;
-        }
-
-
-    }
-    //4) Check  to see that there are 2 matches so that a best win can be played  
+    //3)  Check  to see that there are 2 matches so that a best win can be played 
+    
     {
         //check 1
         placeHorizontalWin(board, (status, result) => {
@@ -1157,6 +1108,58 @@ const playGame = (boardstring) => {
 
     }
 
+    //4)  Block if oponent already has two matching 
+   
+    {
+
+        placeHorizontalBlock(board, (status, result) => {
+            if (status == true) {
+                resultstatus = status
+                board = result;
+            }
+        });
+
+        if (resultstatus == true) {
+            return board;
+        }
+
+        placeVerticalBlock(board, 0, 0, (status, result) => {
+            if (status == true) {
+                resultstatus = status
+                board = result;
+            }
+        });
+
+        if (resultstatus == true) {
+            return board;
+        }
+
+        playLeftRigtDiagonalBlock(board, (status, result) => {
+
+            if (status == true) {
+                resultstatus = status
+                board = result;
+            }
+        });
+
+        if (resultstatus == true) {
+            return board;
+        }
+
+        playRightLeftDiagonalBlock(board, (status, result) => {
+            if (status == true) {
+                resultstatus = status
+                board = result;
+            }
+        });
+
+        if (resultstatus == true) {
+            return board;
+        }
+
+
+    }
+   
     //play  the next second match 
     {
         playNextMove(board);
