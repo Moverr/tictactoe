@@ -4,6 +4,7 @@ const player2 = "x";
 const initsymbol = " ";
 const draw = 0;
 
+
 // initialize  3 x 3 grid board 
 const intiboard = () => {
     let board = [];
@@ -325,6 +326,7 @@ const placeHorizontalWin = (board, callback) => {
 
     }
     return callback(false, board);
+    
 
 }
 
@@ -460,12 +462,7 @@ const playRightLeftDiagonalWin = (board, callback) => {
         boardIndex--;
 
     }
-
-
-
-
-
-
+  
     if (move_o == 2 && move_x == 0 && unmatched == 1) {
         boardIndex = board.length - 1;
 
@@ -486,6 +483,7 @@ const playRightLeftDiagonalWin = (board, callback) => {
         }
 
     }
+
 
     return callback(false, board);
 
@@ -1007,10 +1005,8 @@ const playNextMove = (board) => {
 
 }
 
-/*
-
-This is the beginning part of the game, the game is supplied with a   board string from the api 
-
+/* 
+This is the beginning part of the game, the game is supplied with a   board string from the api  
 */
 const playGame = (boardstring) => {
     let board = null;
